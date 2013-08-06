@@ -14,17 +14,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
+@Mod(modid = Archive.MOD_ID,
+name = Archive.MOD_NAME,
+version = Archive.MOD_VERSION)
+@NetworkMod(clientSideRequired = true,
+	serverSideRequired = false)
 
 public class SoggyCarpet {
 
-	@Mod(modid = Archive.MOD_ID,
-		     name = Archive.MOD_NAME,
-		     version = Archive.MOD_VERSION)
-	@NetworkMod(clientSideRequired = true,
-				serverSideRequired = false)
-
-		public class TradeStuffs
-		{
 		    @Instance(Archive.MOD_ID)
 		    public  SoggyCarpet  instance;
 
@@ -54,4 +51,4 @@ public class SoggyCarpet {
 		        server = event.getServer();
 
 		    }
-		}}
+		}
