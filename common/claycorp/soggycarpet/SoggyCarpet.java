@@ -26,10 +26,8 @@ public class SoggyCarpet
     @EventHandler
     public void preInit(final FMLPreInitializationEvent event)
     {
-
-        ModBlocks.init();
         Config.load(event);
-
+        ModBlocks.init();
     }
 
     @EventHandler
