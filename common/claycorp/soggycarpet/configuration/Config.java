@@ -6,7 +6,7 @@ import net.minecraftforge.common.Configuration;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-public class Config
+public final class Config
 {
     public static void load(final FMLPreInitializationEvent event)
     {

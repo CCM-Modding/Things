@@ -1,6 +1,6 @@
 package claycorp.soggycarpet.utils;
 
-public class Archive
+public final class Archive
 {
     public static final String MOD_ID       = "soggycarpet";
 
