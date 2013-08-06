@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 public class BlockSoggyCarpet extends BlockSoulSand
 {
 
-    public BlockSoggyCarpet(final int par1)
+    public BlockSoggyCarpet(final int id)
     {
-        super(par1);
+        super(id);
         setCreativeTab(CreativeTabs.tabDecorations);
         setUnlocalizedName(Archive.MOD_ID_BLOCK + "soggycarpet");
         setHardness(10);

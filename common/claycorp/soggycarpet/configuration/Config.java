@@ -14,5 +14,10 @@ public class Config
         config.load();
 
         Properties.soggycarpetID = config.getBlock("SoggyCarpet", 450).getInt();
+
+        if (config.hasChanged())
+        {
+            config.save();
+        }
     }
 }
