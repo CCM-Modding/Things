@@ -1,9 +1,8 @@
 package claycorp.soggycarpet.blocks;
 
+import claycorp.soggycarpet.utils.Materials;
 import claycorp.soggycarpet.utils.Properties;
-
 import net.minecraft.block.Block;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks
@@ -18,6 +17,7 @@ public class ModBlocks
     public static CarpetConvayorZY convayorzy;
     public static CarpetConvayorNXY convayornxy;
     public static CarpetConvayorNZY convayornzy;
+    public static CarpetDoor trapdoor;
     
     public static void init()
     {
@@ -31,6 +31,10 @@ public class ModBlocks
     	convayorxy = new CarpetConvayorXY(Properties.convayorxyID);
     	convayornzy = new CarpetConvayorNZY(Properties.convayornzyID);
     	convayornxy = new CarpetConvayorNXY(Properties.convayornxyID);
+    	trapdoor = new CarpetDoor(Properties.trapdoorID, Materials.carpet);
+    	
+    	
+    	
         GameRegistry.registerBlock(soggycarpet, "CLAYCORP.SOGGYCARPET.BLOCK");
         GameRegistry.registerBlock(convayorz, "CLAYCORP.CARPETCONVAYORZ.BLOCK");
         GameRegistry.registerBlock(convayorx, "CLAYCORP.CARPETCONVAYORX.BLOCK");
@@ -41,6 +45,7 @@ public class ModBlocks
         GameRegistry.registerBlock(convayorxy, "CLAYCORP.CARPETCONVAYORXY.BLOCK");
         GameRegistry.registerBlock(convayornzy, "CLAYCORP.CARPETCONVAYORNZY.BLOCK");
         GameRegistry.registerBlock(convayornxy, "CLAYCORP.CARPETCONVAYORNXY.BLOCK");
+        GameRegistry.registerBlock(trapdoor, "CLAYCORP.CARPETTRAPDOOR.BLOCK");
 
         final int carpetID = Block.field_111031_cC.blockID;
         Block.blocksList[carpetID] = null;
