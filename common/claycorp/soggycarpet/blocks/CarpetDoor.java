@@ -104,14 +104,13 @@ public class CarpetDoor extends Block
     {
 
         if ((par1 & 8) != 0)
-        {
-            this.setBlockBounds(0.0F, 1.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+        {	//Top of block
+            setBlockBounds(0.0F, 1.0F - 0.0625F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
         else
-        {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+        {	//Bottom of block
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
         }
-
         if (isTrapdoorOpen(par1))
         {	//North
             if ((par1 & 3) == 0)

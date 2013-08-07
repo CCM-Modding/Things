@@ -18,6 +18,7 @@ public class ModBlocks
     public static CarpetConvayorNXY convayornxy;
     public static CarpetConvayorNZY convayornzy;
     public static CarpetDoor trapdoor;
+    public static WindowDoor windowdoor;
     
     public static void init()
     {
@@ -32,6 +33,7 @@ public class ModBlocks
     	convayornzy = new CarpetConvayorNZY(Properties.convayornzyID);
     	convayornxy = new CarpetConvayorNXY(Properties.convayornxyID);
     	trapdoor = new CarpetDoor(Properties.trapdoorID, Materials.carpet);
+    	windowdoor = new WindowDoor(Properties.windowdoorID, Materials.wood);
     	
     	
     	
@@ -46,6 +48,8 @@ public class ModBlocks
         GameRegistry.registerBlock(convayornzy, "CLAYCORP.CARPETCONVAYORNZY.BLOCK");
         GameRegistry.registerBlock(convayornxy, "CLAYCORP.CARPETCONVAYORNXY.BLOCK");
         GameRegistry.registerBlock(trapdoor, "CLAYCORP.CARPETTRAPDOOR.BLOCK");
+        GameRegistry.registerBlock(windowdoor, "CLAYCORP.WINDOWTRAPDOOR.BLOCK");
+
 
         final int carpetID = Block.field_111031_cC.blockID;
         Block.blocksList[carpetID] = null;

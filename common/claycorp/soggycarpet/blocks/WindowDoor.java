@@ -100,34 +100,34 @@ public class WindowDoor extends Block
     {
 
         if ((par1 & 8) != 0)
-        {
-            this.setBlockBounds(0.0F, 1.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+        {	//Top of block
+            setBlockBounds(0.0F, 1.0F - 0.0625F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
         else
-        {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+        {	//Bottom of block
+            setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
         }
 
         if (isTrapdoorOpen(par1))
         {	//North
             if ((par1 & 3) == 0)
             {
-                this.setBlockBounds(0.0F, 0.0F, 1.0F - 0.0625F, 1.0F, 1.0F, 1.0F);
+                setBlockBounds(0.0F, 0.0F, 1.0F - 0.0625F, 1.0F, 1.0F, 1.0F);
             }
             //South
             if ((par1 & 3) == 1)
             {
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0625F);
+                setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0625F);
             }
             //West
             if ((par1 & 3) == 2)
             {
-                this.setBlockBounds(1.0F - 0.0625F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+                setBlockBounds(1.0F - 0.0625F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             }
             //East
             if ((par1 & 3) == 3)
             {
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0625F, 1.0F, 1.0F);
+                setBlockBounds(0.0F, 0.0F, 0.0F, 0.0625F, 1.0F, 1.0F);
             }
         }
     }
@@ -221,31 +221,31 @@ public class WindowDoor extends Block
     /**
      * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
      */
-    public int onBlockPlaced(World worldID, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    public int onBlockPlaced(World worldID, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
     {
         int j1 = 0;
 
-        if (par5 == 2)
+        if (side == 2)
         {
             j1 = 0;
         }
 
-        if (par5 == 3)
+        if (side == 3)
         {
             j1 = 1;
         }
 
-        if (par5 == 4)
+        if (side == 4)
         {
             j1 = 2;
         }
 
-        if (par5 == 5)
+        if (side == 5)
         {
             j1 = 3;
         }
 
-        if (par5 != 1 && par5 != 0 && par7 > 0.5F)
+        if (side != 1 && side != 0 && hitY > 0.5F)
         {
             j1 |= 8;
         }

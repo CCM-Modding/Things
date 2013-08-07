@@ -13,6 +13,7 @@ public final class Properties
     public static int convayornzyID;
     public static int convayornxyID;
     public static int trapdoorID;
+    public static int windowdoorID;
     
 
 }

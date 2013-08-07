@@ -24,6 +24,7 @@ public final class Config
         Properties.convayornzyID = config.getBlock("CarpetConvayorNZY", 458).getInt();
         Properties.convayornxyID = config.getBlock("CarpetConvayorNXY", 459).getInt();
         Properties.trapdoorID = config.getBlock("CarpetTrapDoor", 460).getInt();
+        Properties.windowdoorID = config.getBlock("WindowTrapDoor", 461).getInt();
 
         if (config.hasChanged())
         {
