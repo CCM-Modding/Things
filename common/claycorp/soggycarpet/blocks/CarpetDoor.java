@@ -21,9 +21,6 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class CarpetDoor extends Block
 {
-    /** Set this to allow trapdoors to remain free-floating */
-    public static boolean disableValidation = true;
-    
 	public CarpetDoor(int par1, Material par2Material){ 
 		super(par1, Materials.carpet);
         setCreativeTab(CreativeTabs.tabDecorations);

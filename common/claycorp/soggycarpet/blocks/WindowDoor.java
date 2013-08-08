@@ -16,10 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 //Single window Flips down
 //Anything larger flips to the sides.
 public class WindowDoor extends Block
-{
-    /** Set this to allow trapdoors to remain free-floating */
-    public static boolean disableValidation = true;
-    
+{  
 	public WindowDoor(int par1, Material par2Material){ 
 		super(par1, Materials.wood);
         setCreativeTab(CreativeTabs.tabDecorations);
