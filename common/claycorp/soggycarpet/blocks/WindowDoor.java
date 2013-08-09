@@ -11,6 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import claycorp.soggycarpet.utils.Archive;
 import claycorp.soggycarpet.utils.Materials;
+import claycorp.soggycarpet.utils.Properties;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 //Single window Flips down
@@ -129,11 +130,60 @@ public class WindowDoor extends Block
         }
     }
 
+    boolean doorState(final World worldID, int x, int y, int z)
+    {
+        final int open = 0;
+        final int closed = 4;
+
+        int meta = worldID.getBlockMetadata(x++, y, z);
+        if (meta == 4)
+        {
+            return true;
+        }
+        meta = worldID.getBlockMetadata(x--, y, z);
+        if (meta == 4)
+        {
+            return true;
+        }
+        meta = worldID.getBlockMetadata(x, y, z++);
+        if (meta == 4)
+        {
+            return true;
+        }
+        meta = worldID.getBlockMetadata(x, y, z--);
+        if (meta == 4)
+        {
+            return true;
+        }
+        meta = worldID.getBlockMetadata(x, y++, z);
+        if (meta == 4)
+        {
+            return true;
+        }
+        meta = worldID.getBlockMetadata(x, y--, z);
+        if (meta == 4)
+        {
+            return true;
+        }
+        return false;
+    }
     /**
      * Called when the block is clicked by a player. Args: x, y, z, entityPlayer
      */
     public void onBlockClicked(World worldID, int x, int y, int z, EntityPlayer clickEntityPlayer) {}
+    
 
+    public boolean syncNeighbor(World worldID, int x, int y, int z, int blockID, int flag)
+    {
+    	if (doorState(worldID, x, y, z) == true);
+    	
+    			worldID.setBlockMetadataWithNotify(x, y, z,worldID.getBlockMetadata(x, y, z) ^ 4, 3);
+    			return true;
+
+    		
+    }
+    
+    
     /**
      * Called upon block activation (right click on the block.)
      */
@@ -168,7 +218,7 @@ public class WindowDoor extends Block
      * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
      * their own) Args: x, y, z, neighbor blockID
      */
-    public void onNeighborBlockChange(World worldID, int x, int y, int z, int par5)
+    public void onNeighborBlockChange(World worldID, int x, int y, int z, int neighborblockID)
     {
         if (!worldID.isRemote)
         {
@@ -198,7 +248,7 @@ public class WindowDoor extends Block
 
             boolean flag = worldID.isBlockIndirectlyGettingPowered(x, y, z);
 
-            if (flag || par5 > 0 && Block.blocksList[par5].canProvidePower())
+            if (flag || neighborblockID > 0 && Block.blocksList[neighborblockID].canProvidePower())
             {
                 this.onPoweredBlockChange(worldID, x, y, z, flag);
             }

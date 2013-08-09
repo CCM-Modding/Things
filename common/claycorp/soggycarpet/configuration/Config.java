@@ -13,6 +13,7 @@ public final class Config
         final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
 
+        //Blocks
         Properties.soggycarpetID = config.getBlock("SoggyCarpet", 450).getInt();
         Properties.convayorzID = config.getBlock("CarpetConvayorZ", 451).getInt();
         Properties.convayorxID = config.getBlock("CarpetConvayorX", 452).getInt();
@@ -25,6 +26,9 @@ public final class Config
         Properties.convayornxyID = config.getBlock("CarpetConvayorNXY", 459).getInt();
         Properties.trapdoorID = config.getBlock("CarpetTrapDoor", 460).getInt();
         Properties.windowdoorID = config.getBlock("WindowTrapDoor", 461).getInt();
+        
+        //Entity
+        Properties.totalbear = config.
 
         if (config.hasChanged())
         {

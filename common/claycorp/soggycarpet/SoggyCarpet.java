@@ -2,8 +2,8 @@ package claycorp.soggycarpet;
 
 import claycorp.soggycarpet.blocks.ModBlocks;
 import claycorp.soggycarpet.configuration.Config;
+import claycorp.soggycarpet.entity.ModEntity;
 import claycorp.soggycarpet.utils.Archive;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -21,13 +21,14 @@ public class SoggyCarpet
 {
 
     @Instance(Archive.MOD_ID)
-    public SoggyCarpet instance;
+    public static SoggyCarpet instance;
 
     @EventHandler
     public void preInit(final FMLPreInitializationEvent event)
     {
         Config.load(event);
         ModBlocks.init();
+        ModEntity.init();
     }
 
     @EventHandler
