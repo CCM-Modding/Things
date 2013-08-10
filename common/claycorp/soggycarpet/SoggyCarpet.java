@@ -1,5 +1,7 @@
 package claycorp.soggycarpet;
 
+import java.lang.reflect.Proxy;
+
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;

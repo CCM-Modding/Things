@@ -27,7 +27,6 @@ public class ModelBear extends ModelBase
   {
     textureWidth = 128;
     textureHeight = 64;
-    
       snout = new ModelRenderer(this, 0, 30);
       snout.addBox(0F, 0F, 0F, 4, 4, 4);
       snout.setRotationPoint(-2F, 8F, -18F);

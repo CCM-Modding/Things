@@ -25,7 +25,6 @@ public class RenderBear extends Render{
 		func_110777_b(bear);
 		
 		model.render(bear, 0, 0, 0, 0, 0, 0.0625F);
-		
 		GL11.glPopMatrix();
 	}
 	
@@ -33,7 +32,6 @@ public class RenderBear extends Render{
 
 	@Override
 	protected ResourceLocation func_110775_a(Entity entity) {
-
 		return texture;
 	}
 	
