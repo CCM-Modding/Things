@@ -19,7 +19,20 @@ public final class Properties
 	
     
     //Entity
-    public static World totalbear;
+    public static int totalbear;
+    public static int bearID;
+    public static int beartracking;
+    public static int bearmovespeed;
+    public static int bearattackspeed;
+    public static int playerdamage;
+    public static int villagerdamage;
+    public static int passivedamage;
+    public static int hostiledamage;
+    public static int beardrop;
+    public static int beardrop2;
+    public static int dropquantity;
+    public static int bearhealth;
+    public static int xp;
     
 
 }
