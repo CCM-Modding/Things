@@ -49,6 +49,7 @@ public class EntityBear extends EntityMob{
     /**
      * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
      */
+	@Override
     protected void attackEntity(Entity par1Entity, float par2)
     {
         if (this.attackTime <= 0 && par2 < 2.0F && par1Entity.boundingBox.maxY > this.boundingBox.minY && par1Entity.boundingBox.minY < this.boundingBox.maxY)
@@ -57,9 +58,10 @@ public class EntityBear extends EntityMob{
             this.attackEntityAsMob(par1Entity);
         }
     }
-	
+    @Override
     public boolean getCanSpawnHere ()
     {
+    	System.out.println("DEBUG!!!!!! ibetryintospawn");
         return this.worldObj.difficultySetting > 0 && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()
                 && !this.worldObj.isAnyLiquid(this.boundingBox);
     }
@@ -76,6 +78,7 @@ public class EntityBear extends EntityMob{
     /**
      * Returns the item ID for the item the mob drops on death.
      */
+    @Override
     protected int getDropItemId ()
     {
         return Properties.beardrop;
@@ -85,6 +88,7 @@ public class EntityBear extends EntityMob{
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
      * par2 - Level of Looting used to kill this mob.
      */
+    @Override
     protected void dropFewItems (boolean par1, int par2)
     {
         int amount = this.rand.nextInt(3) + 1 + this.rand.nextInt(1 + par2);
@@ -104,6 +108,7 @@ public class EntityBear extends EntityMob{
     /**
      * Returns the sound this mob makes while it's alive.
      */
+    @Override
     protected String getLivingSound ()
     {
         return "mob.ghast.say";
@@ -112,6 +117,7 @@ public class EntityBear extends EntityMob{
     /**
      * Returns the sound this mob makes when it is hurt.
      */
+    @Override
     protected String getHurtSound ()
     {
         return "mob.ghast.say";
@@ -120,6 +126,7 @@ public class EntityBear extends EntityMob{
     /**
      * Returns the sound this mob makes on death.
      */
+    @Override
     protected String getDeathSound ()
     {
         return "mob.ghast.death";
@@ -128,21 +135,22 @@ public class EntityBear extends EntityMob{
     /**
      * Plays step sound at given x, y, z for the entity
      */
+    @Override
     protected void playStepSound (int par1, int par2, int par3, int par4)
     {
         this.playSound("mob.cow.step", 0.15F, 1.0F);
     }
-	
+    @Override
     public boolean isAIEnabled ()
     {
         return true;
     }
-	
+    @Override
     protected void updateAITasks ()
     {
         super.updateAITasks();
     }
-    
+    @Override
 	public int getMaxSpawnedInChunk()
 	{
 		return Properties.totalbear;

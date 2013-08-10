@@ -2,12 +2,10 @@ package claycorp.soggycarpet.entity;
 
 import claycorp.soggycarpet.SoggyCarpet;
 import claycorp.soggycarpet.utils.Properties;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
 import net.minecraft.world.World;
-
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class ModEntity

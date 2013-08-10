@@ -29,7 +29,7 @@ public final class Config
         Properties.windowdoorID = config.getBlock(cat, "WindowTrapDoor", 461).getInt();
         
         cat = "Entity.Spawns";
-        Properties.bearID = config.get(cat, "ID_Of_Entity", 205).getInt();
+        //Properties.bearID = config.get(cat, "ID_Of_Entity", 0).getInt();
         Properties.totalbear = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
         Properties.bearhealth = config.get(cat, "Health_Of_Bears", 100).getInt();
         Properties.xp = config.get(cat, "How_Much_XP_Bears_Drop", 100).getInt();
