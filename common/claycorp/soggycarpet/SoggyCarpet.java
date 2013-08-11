@@ -5,7 +5,6 @@ import claycorp.soggycarpet.configuration.Config;
 import claycorp.soggycarpet.entity.ModEntity;
 import claycorp.soggycarpet.utils.Archive;
 import claycorp.soggycarpet.utils.CommonProxy;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,7 +21,9 @@ import cpw.mods.fml.common.network.NetworkMod;
             serverSideRequired = false)
 public class SoggyCarpet
 {
-    @Instance(Archive.MOD_ID)
+    public static final String WindowDoor = "assets/soggycarpet/textures/block/window.png";
+
+	@Instance(Archive.MOD_ID)
     public static SoggyCarpet instance;
 
     @SidedProxy(clientSide = "claycorp.soggycarpet.utils.ClientProxy",
@@ -48,7 +49,6 @@ public class SoggyCarpet
     @EventHandler
     public void postInit(final FMLPostInitializationEvent event)
     {
-        System.out.println("DEBUG!!!!!! POST INIT");
     }
 
 }

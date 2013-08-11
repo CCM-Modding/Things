@@ -2,6 +2,7 @@ package claycorp.soggycarpet.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
@@ -9,6 +10,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import claycorp.soggycarpet.SoggyCarpet;
 import claycorp.soggycarpet.utils.Archive;
 import claycorp.soggycarpet.utils.Materials;
 import claycorp.soggycarpet.utils.Properties;
@@ -35,6 +37,11 @@ public class WindowDoor extends Block
         return false;
     }
 
+    public void registerIcons(IconRegister par1IconRegister)
+    {
+        this.blockIcon = par1IconRegister.registerIcon(SoggyCarpet.WindowDoor);
+    }
+    
     /**
      * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
      */

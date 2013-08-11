@@ -54,6 +54,7 @@ public class ModBlocks
         final int carpetID = Block.field_111031_cC.blockID;
         Block.blocksList[carpetID] = null;
         Block.blocksList[carpetID] = new BlockCarpetModified(carpetID);
+        
 
     }
 }
