@@ -1,6 +1,5 @@
 package claycorp.soggycarpet.items;
 
-public class ModItems
-{
+public class ModItems {
 
 }

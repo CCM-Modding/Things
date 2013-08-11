@@ -1,30 +1,26 @@
 package claycorp.soggycarpet.blocks;
 
-import claycorp.soggycarpet.utils.Materials;
-import claycorp.soggycarpet.utils.Properties;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-
+import claycorp.soggycarpet.utils.Materials;
+import claycorp.soggycarpet.utils.Properties;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ModBlocks
-{
-    public static BlockSoggyCarpet  soggycarpet;
-    public static CarpetConvayorZ   convayorz;
-    public static CarpetConvayorX   convayorx;
-    public static CarpetConvayorNZ  convayornz;
-    public static CarpetConvayorNX  convayornx;
-    public static CarpetConvayorY   convayory;
-    public static CarpetConvayorXY  convayorxy;
-    public static CarpetConvayorZY  convayorzy;
+public class ModBlocks {
+    public static BlockSoggyCarpet soggycarpet;
+    public static CarpetConvayorZ convayorz;
+    public static CarpetConvayorX convayorx;
+    public static CarpetConvayorNZ convayornz;
+    public static CarpetConvayorNX convayornx;
+    public static CarpetConvayorY convayory;
+    public static CarpetConvayorXY convayorxy;
+    public static CarpetConvayorZY convayorzy;
     public static CarpetConvayorNXY convayornxy;
     public static CarpetConvayorNZY convayornzy;
-    public static CarpetDoor        trapdoor;
-    public static WindowDoor        windowdoor;
+    public static CarpetDoor trapdoor;
+    public static WindowDoor windowdoor;
 
-    public static void init()
-    {
+    public static void init() {
         soggycarpet = new BlockSoggyCarpet(Properties.soggycarpetID);
         convayorz = new CarpetConvayorZ(Properties.convayorzID);
         convayorx = new CarpetConvayorX(Properties.convayorxID);

@@ -1,8 +1,6 @@
 package claycorp.soggycarpet.utils;
 
-
-public final class Properties
-{	// Block Id's
+public final class Properties { // Block Id's
     public static int soggycarpetID;
     public static int convayorzID;
     public static int convayorxID;

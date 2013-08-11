@@ -1,15 +1,11 @@
 package claycorp.soggycarpet.configuration;
 
-import claycorp.soggycarpet.utils.Properties;
-
 import net.minecraftforge.common.Configuration;
-
+import claycorp.soggycarpet.utils.Properties;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-public final class Config
-{
-    public static void load(final FMLPreInitializationEvent event)
-    {
+public final class Config {
+    public static void load(final FMLPreInitializationEvent event) {
         final Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
 
@@ -46,8 +42,7 @@ public final class Config
         Properties.dropquantity = config.get(cat, "Quanity_Of_Player_Kill", 2).getInt();
         Properties.dropquantity2 = config.get(cat, "Quanity_Of_Player_Kill2", 2).getInt();
 
-        if (config.hasChanged())
-        {
+        if (config.hasChanged()) {
             config.save();
         }
     }
