@@ -6,43 +6,52 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderBear extends Render{
-	private ModelBear model;
-	
-	public RenderBear() {
-		model = new ModelBear();
-		shadowSize = 0.5F;
-	}
+public class RenderBear extends Render
+{
+    private final ModelBear model;
 
-	
-	private static final ResourceLocation texture = new ResourceLocation("resources", "claycorp/resources/assets/soggycarpet/textures/entity/bear.png");
-	
-	public void renderBear(EntityBear bear, double x, double y, double z, float yaw, float partialTickTime) {
-		System.out.println("DEBUG!!!!!! 1");
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float)x, (float)y, (float)z);
-		GL11.glScalef(-1, -1, 1);
-		System.out.println("DEBUG!!!!!! 2");
-		func_110777_b(bear);
-		
-		model.render(bear, 0, 0, 0, 0, 0, 0.0625F);
-		GL11.glPopMatrix();
-		System.out.println("DEBUG!!!!!! 3");
-	}
-	
+    public RenderBear()
+    {
+        model = new ModelBear();
+        shadowSize = 0.8F;
+    }
 
+    private static final ResourceLocation texture = new ResourceLocation("soggycarpet",
+                                                                         "textures/entity/bear.png");
 
-	@Override
-	protected ResourceLocation func_110775_a(Entity entity) {
-		return texture;
-	}
-	
-	
-	
-	
-	@Override
-	public void doRender(Entity entity, double x, double y, double z, float yaw, float partialTickTime) {
-		renderBear((EntityBear)entity, x, y, z, yaw, partialTickTime);
-	}
+    public void renderBear(final EntityBear bear,
+                           final double x,
+                           final double y,
+                           final double z,
+                           final float yaw,
+                           final float partialTickTime)
+    {
+        System.out.println("DEBUG!!!!!! Rendering Stuffs 1");
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float) x, (float) y + bear.height, (float) z - (bear.width / 8));
+        GL11.glScalef(-1, -1, 1);
+        System.out.println("DEBUG!!!!!! Rendering Stuffs 2");
+        func_110777_b(bear);
+
+        model.render(bear, 0, 0, 0, 0, 0, 0.0625F);
+        GL11.glPopMatrix();
+        System.out.println("DEBUG!!!!!! Rendering Stuffs 3");
+    }
+
+    @Override
+    protected ResourceLocation func_110775_a(final Entity entity)
+    {
+        return texture;
+    }
+
+    @Override
+    public void doRender(final Entity entity,
+                         final double x,
+                         final double y,
+                         final double z,
+                         final float yaw,
+                         final float partialTickTime)
+    {
+        renderBear((EntityBear) entity, x, y, z, yaw, partialTickTime);
+    }
 }
-

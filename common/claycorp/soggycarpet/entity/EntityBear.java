@@ -4,19 +4,7 @@ import claycorp.soggycarpet.utils.Properties;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.passive.IAnimals;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class EntityBear extends EntityMob
@@ -26,27 +14,28 @@ public class EntityBear extends EntityMob
     {
         super(world);
         System.out.println("CREATING A BEAR!!!!");
-        setSize(1.6F, 1.8F);
+        setSize(1.6F, 1.5F);
         experienceValue = Properties.xp;
         getNavigator().setBreakDoors(true);
-        tasks.addTask(1, new EntityAISwimming(this));
-        tasks.addTask(2, new EntityAILeapAtTarget(this, 1.0F));
-        tasks.addTask(2,
-                      new EntityAIAttackOnCollide(this, EntityPlayer.class, Properties.playerdamage, false));
-        tasks.addTask(3, new EntityAIAttackOnCollide(this,
-                                                     EntityVillager.class,
-                                                     Properties.villagerdamage,
-                                                     true));
-        tasks.addTask(4, new EntityAIAttackOnCollide(this, IAnimals.class, Properties.passivedamage, true));
-        tasks.addTask(4, new EntityAIAttackOnCollide(this, IMob.class, Properties.hostiledamage, true));
-        tasks.addTask(5, new EntityAIWander(this, 5.0D));
-        tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 50.0F));
-        tasks.addTask(6, new EntityAILookIdle(this));
-        targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, false));
-        targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IAnimals.class, 0, false));
-        targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IMob.class, 0, false));
+        // tasks.addTask(1, new EntityAISwimming(this));
+        // tasks.addTask(2, new EntityAILeapAtTarget(this, 1.0F));
+        // tasks.addTask(2,
+        // new EntityAIAttackOnCollide(this, EntityPlayer.class, Properties.playerdamage, false));
+        // tasks.addTask(3, new EntityAIAttackOnCollide(this,
+        // EntityVillager.class,
+        // Properties.villagerdamage,
+        // true));
+        // tasks.addTask(4, new EntityAIAttackOnCollide(this, IAnimals.class, Properties.passivedamage,
+        // true));
+        // tasks.addTask(4, new EntityAIAttackOnCollide(this, IMob.class, Properties.hostiledamage, true));
+        // tasks.addTask(5, new EntityAIWander(this, 5.0D));
+        // tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 50.0F));
+        // tasks.addTask(6, new EntityAILookIdle(this));
+        // targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
+        // targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        // targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, false));
+        // targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IAnimals.class, 0, false));
+        // targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IMob.class, 0, false));
     }
 
     /**
@@ -68,7 +57,7 @@ public class EntityBear extends EntityMob
     @Override
     public boolean getCanSpawnHere()
     {
-        System.out.println("DEBUG!!!!!! ibetryintospawn");
+        System.out.println("DEBUG!!!!!! BEAR try to Spawn");
         return (worldObj.difficultySetting > 0) && worldObj.checkNoEntityCollision(boundingBox)
                && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty()
                && !worldObj.isAnyLiquid(boundingBox);
