@@ -21,7 +21,7 @@ import cpw.mods.fml.common.network.NetworkMod;
             serverSideRequired = false)
 public class SoggyCarpet
 {
-    public static final String WindowDoor = "assets/soggycarpet/textures/block/window.png";
+    public static final String WindowDoor = "soggycarpet:window";
 
 	@Instance(Archive.MOD_ID)
     public static SoggyCarpet instance;
