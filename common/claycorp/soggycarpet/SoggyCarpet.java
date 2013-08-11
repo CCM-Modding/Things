@@ -1,20 +1,11 @@
 package claycorp.soggycarpet;
 
-
-import java.lang.reflect.Proxy;
-
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import claycorp.soggycarpet.blocks.ModBlocks;
 import claycorp.soggycarpet.configuration.Config;
-import claycorp.soggycarpet.entity.EntityBear;
 import claycorp.soggycarpet.entity.ModEntity;
 import claycorp.soggycarpet.utils.Archive;
 import claycorp.soggycarpet.utils.CommonProxy;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,7 +14,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 @Mod(modid = Archive.MOD_ID,
      name = Archive.MOD_NAME,
@@ -52,7 +42,7 @@ public class SoggyCarpet
         proxy.initRenders();
 
         ModEntity.init();
-        EntityRegistry.addSpawn(EntityBear.class, weightedProb, min, max, spawnList, biomes);
+        // EntityRegistry.addSpawn(EntityBear.class, weightedProb, min, max, spawnList, biomes);
     }
 
     @EventHandler
