@@ -1,20 +1,18 @@
 package claycorp.soggycarpet.entity;
 
 import claycorp.soggycarpet.utils.Properties;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -24,33 +22,38 @@ public class EntityBear extends EntityMob
     public EntityBear(final World world)
     {
         super(world);
-        this.setSize(1.1F, 1.5F);
-        this.getNavigator().setBreakDoors(true);
-        this.experienceValue = Properties.xp;
-        this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, Properties.playerdamage, true));
-        this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityVillager.class, Properties.villagerdamage,true));
-        //tasks.addTask(4, new EntityAIAttackOnCollide(this, IAnimals.class, Properties.passivedamage,true));
-         //tasks.addTask(5, new EntityAIAttackOnCollide(this, IMob.class, Properties.hostiledamage, true));
-        this.tasks.addTask(6, new EntityAIWander(this, 5.0D));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
-        this.tasks.addTask(7, new EntityAILookIdle(this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, false));
-         //targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IAnimals.class, 0, false));
-         //targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IMob.class, 0, false));
+        setSize(1.1F, 1.5F);
+        getNavigator().setBreakDoors(true);
+        experienceValue = Properties.xp;
+        tasks.addTask(1, new EntityAISwimming(this));
+        tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, Properties.playerdamage, true));
+        tasks.addTask(3, new EntityAIAttackOnCollide(this,
+                                                     EntityVillager.class,
+                                                     Properties.villagerdamage,
+                                                     true));
+        // tasks.addTask(4, new EntityAIAttackOnCollide(this, IAnimals.class, Properties.passivedamage,true));
+        // tasks.addTask(5, new EntityAIAttackOnCollide(this, IMob.class, Properties.hostiledamage, true));
+        tasks.addTask(6, new EntityAIWander(this, 5.0D));
+        tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
+        tasks.addTask(7, new EntityAILookIdle(this));
+        targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, false));
+        // targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IAnimals.class, 0, false));
+        // targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, IMob.class, 0, false));
     }
+
+    @Override
     public void onUpdate()
     {
         super.onUpdate();
 
-        if (!this.worldObj.isRemote && this.worldObj.difficultySetting == 0)
+        if (!worldObj.isRemote && (worldObj.difficultySetting == 0))
         {
-            this.setDead();
-        }	
+            setDead();
+        }
     }
-    
+
     /**
      * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their
      * attack.

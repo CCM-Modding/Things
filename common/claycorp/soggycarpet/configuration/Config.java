@@ -14,7 +14,7 @@ public final class Config
         config.load();
 
         String cat = "Block.Id";
-        
+
         Properties.soggycarpetID = config.getBlock(cat, "SoggyCarpet", 450).getInt();
         Properties.convayorzID = config.getBlock(cat, "CarpetConvayorZ", 451).getInt();
         Properties.convayorxID = config.getBlock(cat, "CarpetConvayorX", 452).getInt();
@@ -27,9 +27,9 @@ public final class Config
         Properties.convayornxyID = config.getBlock(cat, "CarpetConvayorNXY", 459).getInt();
         Properties.trapdoorID = config.getBlock(cat, "CarpetTrapDoor", 460).getInt();
         Properties.windowdoorID = config.getBlock(cat, "WindowTrapDoor", 461).getInt();
-        
+
         cat = "Entity.Spawns";
-        //Properties.bearID = config.get(cat, "ID_Of_Entity", 0).getInt();
+        // Properties.bearID = config.get(cat, "ID_Of_Entity", 0).getInt();
         Properties.totalbear = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
         Properties.bearhealth = config.get(cat, "Health_Of_Bears", 5).getInt();
         Properties.xp = config.get(cat, "How_Much_XP_Bears_Drop", 100).getInt();
@@ -45,7 +45,6 @@ public final class Config
         Properties.beardrop2 = config.get(cat, "ItemID_Bears_Drop_From_Player_Kill2", 388).getInt();
         Properties.dropquantity = config.get(cat, "Quanity_Of_Player_Kill", 2).getInt();
         Properties.dropquantity2 = config.get(cat, "Quanity_Of_Player_Kill2", 2).getInt();
-        
 
         if (config.hasChanged())
         {

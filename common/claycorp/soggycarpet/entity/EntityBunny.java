@@ -1,6 +1,7 @@
 package claycorp.soggycarpet.entity;
 
 import claycorp.soggycarpet.utils.Properties;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -14,21 +15,24 @@ import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityBunny extends EntityPigZombie {
+public class EntityBunny extends EntityPigZombie
+{
 
-	public EntityBunny(World par1World) {
-		super(par1World);
-        this.setSize(0.5F, 0.5F);
-        this.getNavigator().setBreakDoors(true);
-        this.experienceValue = Properties.xp;
-        this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 5, true));
-        this.tasks.addTask(3, new EntityAIWander(this, 0.5D));
-        this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
-        this.tasks.addTask(4, new EntityAILookIdle(this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-	}
+    public EntityBunny(final World par1World)
+    {
+        super(par1World);
+        setSize(0.5F, 0.5F);
+        getNavigator().setBreakDoors(true);
+        experienceValue = Properties.xp;
+        tasks.addTask(1, new EntityAISwimming(this));
+        tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 5, true));
+        tasks.addTask(3, new EntityAIWander(this, 0.5D));
+        tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
+        tasks.addTask(4, new EntityAILookIdle(this));
+        targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+    }
+
     @Override
     protected void attackEntity(final Entity par1Entity, final float par2)
     {
@@ -40,6 +44,7 @@ public class EntityBunny extends EntityPigZombie {
             attackEntityAsMob(par1Entity);
         }
     }
+
     @Override
     protected void func_110147_ax()
     {
@@ -49,15 +54,18 @@ public class EntityBunny extends EntityPigZombie {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(20); // range
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.5); // Movespeed
     }
+
+    @Override
     public void onUpdate()
     {
         super.onUpdate();
 
-        if (!this.worldObj.isRemote && this.worldObj.difficultySetting == 0)
+        if (!worldObj.isRemote && (worldObj.difficultySetting == 0))
         {
-            this.setDead();
-        }	
+            setDead();
+        }
     }
+
     @Override
     public boolean isAIEnabled()
     {

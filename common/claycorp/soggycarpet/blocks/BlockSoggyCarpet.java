@@ -1,6 +1,7 @@
 package claycorp.soggycarpet.blocks;
 
 import claycorp.soggycarpet.utils.Archive;
+
 import net.minecraft.block.BlockCarpet;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -10,7 +11,7 @@ import net.minecraft.world.World;
 public class BlockSoggyCarpet extends BlockCarpet
 {
 
-	public BlockSoggyCarpet(final int id)
+    public BlockSoggyCarpet(final int id)
     {
         super(id);
         setCreativeTab(CreativeTabs.tabDecorations);
@@ -20,9 +21,7 @@ public class BlockSoggyCarpet extends BlockCarpet
         setStepSound(soundSnowFootstep);
     }
 
-  
-
-	/**
+    /**
      * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool
      * has been
      * cleared to be reused)
@@ -35,10 +34,17 @@ public class BlockSoggyCarpet extends BlockCarpet
     {
         return AxisAlignedBB.getAABBPool().getAABB(x + minX, y + minY, z + minZ, x + 1F, y + 0.25F, z + 1F);
     }
+
     /**
-     * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
+     * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z,
+     * entity
      */
-    public void onEntityCollidedWithBlock(World worldID, int X, int Y, int Z, Entity slowEntity)
+    @Override
+    public void onEntityCollidedWithBlock(final World worldID,
+                                          final int X,
+                                          final int Y,
+                                          final int Z,
+                                          final Entity slowEntity)
     {
         slowEntity.motionX *= 0.05D;
         slowEntity.motionZ *= 0.05D;

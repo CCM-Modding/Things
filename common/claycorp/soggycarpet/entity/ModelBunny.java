@@ -4,11 +4,6 @@
 // Keep in mind that you still need to fill in some blanks
 // - ZeuX
 
-
-
-
-
-
 package claycorp.soggycarpet.entity;
 
 import net.minecraft.client.model.ModelBase;
@@ -17,7 +12,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelBunny extends ModelBase
 {
-  //fields
+    // fields
     ModelRenderer body;
     ModelRenderer foot;
     ModelRenderer foot2;
@@ -28,100 +23,112 @@ public class ModelBunny extends ModelBase
     ModelRenderer nose;
     ModelRenderer frontleg2;
     ModelRenderer frontleg;
-  
-  public ModelBunny()
-  {
-    textureWidth = 32;
-    textureHeight = 32;
-    
-      body = new ModelRenderer(this, 0, 0);
-      body.addBox(0F, 0F, 0F, 7, 4, 4);
-      body.setRotationPoint(-2.1F, 17F, -2F);
-      body.setTextureSize(64, 32);
-      body.mirror = true;
-      setRotation(body, 0F, 0F, 0.2792527F);
-      foot = new ModelRenderer(this, 0, 0);
-      foot.addBox(0F, 0F, 0F, 4, 2, 1);
-      foot.setRotationPoint(-0.5F, 22F, 2F);
-      foot.setTextureSize(64, 32);
-      foot.mirror = true;
-      setRotation(foot, 0F, 0.1396263F, 0F);
-      foot2 = new ModelRenderer(this, 0, 0);
-      foot2.addBox(0F, 0F, 0F, 4, 2, 1);
-      foot2.setRotationPoint(-0.5F, 22F, -3F);
-      foot2.setTextureSize(64, 32);
-      foot2.mirror = true;
-      setRotation(foot2, 0F, -0.1396263F, 0F);
-      head = new ModelRenderer(this, 0, 0);
-      head.addBox(0F, 0F, 0F, 2, 3, 3);
-      head.setRotationPoint(-3.9F, 16F, -1.5F);
-      head.setTextureSize(64, 32);
-      head.mirror = true;
-      setRotation(head, 0F, 0F, 0.2792527F);
-      ear2 = new ModelRenderer(this, 0, 0);
-      ear2.addBox(0F, 0F, 0F, 1, 3, 1);
-      ear2.setRotationPoint(-3.5F, 14F, -1.5F);
-      ear2.setTextureSize(64, 32);
-      ear2.mirror = true;
-      setRotation(ear2, 0F, 0F, 0.122173F);
-      ear = new ModelRenderer(this, 0, 0);
-      ear.addBox(0F, 0F, 0F, 1, 3, 1);
-      ear.setRotationPoint(-3.5F, 14F, 0.5F);
-      ear.setTextureSize(64, 32);
-      ear.mirror = true;
-      setRotation(ear, 0F, 0F, 0.122173F);
-      tail = new ModelRenderer(this, 0, 0);
-      tail.addBox(0F, 0F, 0F, 1, 2, 2);
-      tail.setRotationPoint(4F, 19F, -1F);
-      tail.setTextureSize(64, 32);
-      tail.mirror = true;
-      setRotation(tail, 0F, 0F, 0.2792527F);
-      nose = new ModelRenderer(this, 0, 0);
-      nose.addBox(0F, 0F, 0F, 1, 1, 1);
-      nose.setRotationPoint(-4.5F, 17F, -0.5F);
-      nose.setTextureSize(64, 32);
-      nose.mirror = true;
-      setRotation(nose, 0F, 0F, 0.2792527F);
-      frontleg2 = new ModelRenderer(this, 0, 0);
-      frontleg2.addBox(0F, 0F, 0F, 1, 4, 1);
-      frontleg2.setRotationPoint(-2.5F, 20F, -2F);
-      frontleg2.setTextureSize(64, 32);
-      frontleg2.mirror = true;
-      setRotation(frontleg2, 0F, 0F, 0.0174533F);
-      frontleg = new ModelRenderer(this, 0, 0);
-      frontleg.addBox(0F, 0F, 0F, 1, 4, 1);
-      frontleg.setRotationPoint(-2.5F, 20F, 1F);
-      frontleg.setTextureSize(64, 32);
-      frontleg.mirror = true;
-      setRotation(frontleg, 0F, 0F, 0.0174533F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5);
-    body.render(f5);
-    foot.render(f5);
-    foot2.render(f5);
-    head.render(f5);
-    ear2.render(f5);
-    ear.render(f5);
-    tail.render(f5);
-    nose.render(f5);
-    frontleg2.render(f5);
-    frontleg.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
-  }
+
+    public ModelBunny()
+    {
+        textureWidth = 32;
+        textureHeight = 32;
+
+        body = new ModelRenderer(this, 0, 0);
+        body.addBox(0F, 0F, 0F, 7, 4, 4);
+        body.setRotationPoint(-2.1F, 17F, -2F);
+        body.setTextureSize(64, 32);
+        body.mirror = true;
+        setRotation(body, 0F, 0F, 0.2792527F);
+        foot = new ModelRenderer(this, 0, 0);
+        foot.addBox(0F, 0F, 0F, 4, 2, 1);
+        foot.setRotationPoint(-0.5F, 22F, 2F);
+        foot.setTextureSize(64, 32);
+        foot.mirror = true;
+        setRotation(foot, 0F, 0.1396263F, 0F);
+        foot2 = new ModelRenderer(this, 0, 0);
+        foot2.addBox(0F, 0F, 0F, 4, 2, 1);
+        foot2.setRotationPoint(-0.5F, 22F, -3F);
+        foot2.setTextureSize(64, 32);
+        foot2.mirror = true;
+        setRotation(foot2, 0F, -0.1396263F, 0F);
+        head = new ModelRenderer(this, 0, 0);
+        head.addBox(0F, 0F, 0F, 2, 3, 3);
+        head.setRotationPoint(-3.9F, 16F, -1.5F);
+        head.setTextureSize(64, 32);
+        head.mirror = true;
+        setRotation(head, 0F, 0F, 0.2792527F);
+        ear2 = new ModelRenderer(this, 0, 0);
+        ear2.addBox(0F, 0F, 0F, 1, 3, 1);
+        ear2.setRotationPoint(-3.5F, 14F, -1.5F);
+        ear2.setTextureSize(64, 32);
+        ear2.mirror = true;
+        setRotation(ear2, 0F, 0F, 0.122173F);
+        ear = new ModelRenderer(this, 0, 0);
+        ear.addBox(0F, 0F, 0F, 1, 3, 1);
+        ear.setRotationPoint(-3.5F, 14F, 0.5F);
+        ear.setTextureSize(64, 32);
+        ear.mirror = true;
+        setRotation(ear, 0F, 0F, 0.122173F);
+        tail = new ModelRenderer(this, 0, 0);
+        tail.addBox(0F, 0F, 0F, 1, 2, 2);
+        tail.setRotationPoint(4F, 19F, -1F);
+        tail.setTextureSize(64, 32);
+        tail.mirror = true;
+        setRotation(tail, 0F, 0F, 0.2792527F);
+        nose = new ModelRenderer(this, 0, 0);
+        nose.addBox(0F, 0F, 0F, 1, 1, 1);
+        nose.setRotationPoint(-4.5F, 17F, -0.5F);
+        nose.setTextureSize(64, 32);
+        nose.mirror = true;
+        setRotation(nose, 0F, 0F, 0.2792527F);
+        frontleg2 = new ModelRenderer(this, 0, 0);
+        frontleg2.addBox(0F, 0F, 0F, 1, 4, 1);
+        frontleg2.setRotationPoint(-2.5F, 20F, -2F);
+        frontleg2.setTextureSize(64, 32);
+        frontleg2.mirror = true;
+        setRotation(frontleg2, 0F, 0F, 0.0174533F);
+        frontleg = new ModelRenderer(this, 0, 0);
+        frontleg.addBox(0F, 0F, 0F, 1, 4, 1);
+        frontleg.setRotationPoint(-2.5F, 20F, 1F);
+        frontleg.setTextureSize(64, 32);
+        frontleg.mirror = true;
+        setRotation(frontleg, 0F, 0F, 0.0174533F);
+    }
+
+    @Override
+    public void render(final Entity entity,
+                       final float f,
+                       final float f1,
+                       final float f2,
+                       final float f3,
+                       final float f4,
+                       final float f5)
+    {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5);
+        body.render(f5);
+        foot.render(f5);
+        foot2.render(f5);
+        head.render(f5);
+        ear2.render(f5);
+        ear.render(f5);
+        tail.render(f5);
+        nose.render(f5);
+        frontleg2.render(f5);
+        frontleg.render(f5);
+    }
+
+    private void setRotation(final ModelRenderer model, final float x, final float y, final float z)
+    {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(final float f,
+                                  final float f1,
+                                  final float f2,
+                                  final float f3,
+                                  final float f4,
+                                  final float f5)
+    {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
+    }
 
 }

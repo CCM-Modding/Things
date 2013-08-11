@@ -12,7 +12,7 @@ public class ModEntity
 
     public static void init()
     {
-    	registerEntity(EntityBunny.class, "EntityRabbit", 0xff86d3, 0x571b60);
+        registerEntity(EntityBunny.class, "EntityRabbit", 0xff86d3, 0x571b60);
         registerEntity(EntityBear.class, "EntityBear", 0xff86d3, 0x571b60);
     }
 

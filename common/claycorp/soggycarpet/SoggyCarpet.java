@@ -5,6 +5,7 @@ import claycorp.soggycarpet.configuration.Config;
 import claycorp.soggycarpet.entity.ModEntity;
 import claycorp.soggycarpet.utils.Archive;
 import claycorp.soggycarpet.utils.CommonProxy;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,12 +24,12 @@ public class SoggyCarpet
 {
     public static final String WindowDoor = "soggycarpet:window";
 
-	@Instance(Archive.MOD_ID)
-    public static SoggyCarpet instance;
+    @Instance(Archive.MOD_ID)
+    public static SoggyCarpet  instance;
 
     @SidedProxy(clientSide = "claycorp.soggycarpet.utils.ClientProxy",
                 serverSide = "claycorp.soggycarpet.utils.CommonProxy")
-    public static CommonProxy proxy;
+    public static CommonProxy  proxy;
 
     @EventHandler
     public void preInit(final FMLPreInitializationEvent event)
@@ -48,7 +49,6 @@ public class SoggyCarpet
 
     @EventHandler
     public void postInit(final FMLPostInitializationEvent event)
-    {
-    }
+    {}
 
 }

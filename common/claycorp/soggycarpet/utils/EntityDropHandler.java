@@ -5,7 +5,8 @@ import java.util.Random;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-public class EntityDropHandler {
+public class EntityDropHandler
+{
 
     /**
      * Name of the mod registering this coin

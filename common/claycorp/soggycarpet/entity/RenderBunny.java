@@ -1,13 +1,14 @@
 package claycorp.soggycarpet.entity;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
-
-public class RenderBunny extends Render{
-	private final ModelBunny model;
+public class RenderBunny extends Render
+{
+    private final ModelBunny model;
 
     public RenderBunny()
     {
@@ -19,11 +20,11 @@ public class RenderBunny extends Render{
                                                                          "textures/entity/bunny.png");
 
     public void renderBunny(final EntityBunny bunny,
-                           final double x,
-                           final double y,
-                           final double z,
-                           final float yaw,
-                           final float partialTickTime)
+                            final double x,
+                            final double y,
+                            final double z,
+                            final float yaw,
+                            final float partialTickTime)
     {
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x, (float) y + bunny.height, (float) z - (bunny.width / 8));

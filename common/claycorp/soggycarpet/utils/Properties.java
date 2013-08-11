@@ -1,9 +1,8 @@
 package claycorp.soggycarpet.utils;
 
-import net.minecraft.world.World;
 
 public final class Properties
-{	//Block Id's
+{	// Block Id's
     public static int soggycarpetID;
     public static int convayorzID;
     public static int convayorxID;
@@ -16,9 +15,8 @@ public final class Properties
     public static int convayornxyID;
     public static int trapdoorID;
     public static int windowdoorID;
-	
-    
-    //Entity
+
+    // Entity
     public static int totalbear;
     public static int bearID;
     public static int beartracking;
@@ -34,6 +32,5 @@ public final class Properties
     public static int dropquantity2;
     public static int bearhealth;
     public static int xp;
-    
 
 }

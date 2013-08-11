@@ -6,9 +6,9 @@ import java.util.List;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-
-public class EntityDrops {
-	/**
+public class EntityDrops
+{
+    /**
      * All of the registered Drop Handlers
      */
     private static final List<EntityDropHandler> drops = new ArrayList<EntityDropHandler>();
