@@ -8,27 +8,11 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class ModEntity
 {
-
-    // private static EntityBear entitybear;
-    // private static World world;
     private static int entityID = 0;
 
     public static void init()
     {
-        System.out.println("DEBUG!!!!!!register");
-        // entitybear = new EntityBear(world);
-        System.out.println("DEBUG!!!!!!register");
         registerEntity(EntityBear.class, "EntityBear", 0xff86d3, 0x571b60);
-        /*
-         * registerEntity(entitybear,
-         * "EntityBear",
-         * SoggyCarpet.instance,
-         * Properties.beartracking,
-         * 3,
-         * false,
-         * 0xff86d3,
-         * 0x571b60);
-         */
     }
 
     /**

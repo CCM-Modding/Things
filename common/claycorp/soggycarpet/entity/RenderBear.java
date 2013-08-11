@@ -26,16 +26,13 @@ public class RenderBear extends Render
                            final float yaw,
                            final float partialTickTime)
     {
-        System.out.println("DEBUG!!!!!! Rendering Stuffs 1");
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x, (float) y + bear.height, (float) z - (bear.width / 8));
         GL11.glScalef(-1, -1, 1);
-        System.out.println("DEBUG!!!!!! Rendering Stuffs 2");
         func_110777_b(bear);
 
         model.render(bear, 0, 0, 0, 0, 0, 0.0625F);
         GL11.glPopMatrix();
-        System.out.println("DEBUG!!!!!! Rendering Stuffs 3");
     }
 
     @Override

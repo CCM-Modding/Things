@@ -13,7 +13,6 @@ public class EntityBear extends EntityMob
     public EntityBear(final World world)
     {
         super(world);
-        System.out.println("CREATING A BEAR!!!!");
         setSize(1.6F, 1.5F);
         experienceValue = Properties.xp;
         getNavigator().setBreakDoors(true);
