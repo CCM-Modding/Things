@@ -31,6 +31,7 @@ public final class Properties
     public static int beardrop;
     public static int beardrop2;
     public static int dropquantity;
+    public static int dropquantity2;
     public static int bearhealth;
     public static int xp;
     
