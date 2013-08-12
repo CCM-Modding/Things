@@ -1,38 +1,30 @@
 package claycorp.soggycarpet.entity;
 
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
+public class RenderBear extends RenderLiving
+{
+	private static final ModelBear model = new ModelBear();
+	private static final ResourceLocation texture = new ResourceLocation("soggycarpet", "textures/entity/bear.png");
+	
+	public RenderBear()
+	{
+		super(model, 0.25F);
+	}
 
-public class RenderBear extends Render {
-    private final ModelBear model;
+	protected ResourceLocation func_110832_a(EntityBear par1EntityCow)
+	{
+		return texture;
+	}
 
-    public RenderBear() {
-        this.model = new ModelBear();
-        this.shadowSize = 0.8F;
-    }
+	protected ResourceLocation func_110775_a(Entity par1Entity)
+	{
+		return this.func_110832_a((EntityBear)par1Entity);
+	}
 
-    private static final ResourceLocation texture = new ResourceLocation("soggycarpet", "textures/entity/bear.png");
-
-    public void renderBear(final EntityBear bear, final double x, final double y, final double z, final float yaw, final float partialTickTime) {
-        GL11.glPushMatrix();
-        GL11.glTranslatef((float) x, (float) y + bear.height, (float) z - (bear.width / 8));
-        GL11.glScalef(-1, -1, 1);
-        this.func_110777_b(bear);
-
-        this.model.render(bear, 0, 0, 0, 0, 0, 0.0625F);
-        GL11.glPopMatrix();
-    }
-
-    @Override
-    protected ResourceLocation func_110775_a(final Entity entity) {
-        return texture;
-    }
-
-    @Override
-    public void doRender(final Entity entity, final double x, final double y, final double z, final float yaw, final float partialTickTime) {
-        this.renderBear((EntityBear) entity, x, y, z, yaw, partialTickTime);
-    }
 }
