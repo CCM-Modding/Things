@@ -9,6 +9,7 @@ package claycorp.soggycarpet.entity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 
 public class ModelBear extends ModelBase {
     // fields
@@ -104,5 +105,12 @@ public class ModelBear extends ModelBase {
 
     public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4, final float f5) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
+        this.head.rotateAngleX = f5 / (180F / (float)Math.PI);
+        this.head.rotateAngleY = f4 / (180F / (float)Math.PI);
+        this.body.rotateAngleX = ((float)Math.PI / 2F);
+        this.leg1.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
+        this.leg2.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float)Math.PI) * 1.4F * f2;
+        this.leg3.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float)Math.PI) * 1.4F * f2;
+        this.leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
     }
 }

@@ -112,7 +112,7 @@ public class ModelBunny extends ModelBase {
     }
 
     public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4, final float f5) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
+        super.setRotationAngles(0.5F, 0.5F, f2, f3, f4, f5, null);
     }
 
 }

@@ -9,5 +9,6 @@ public class Materials extends Material {
     }
 
     public static final Material carpet = (new CarpetMaterial(MapColor.clothColor));
+    public static final Material flesh = (new FleshMaterial(MapColor.dirtColor));
 
 }

@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class WindowDoor extends Block {
     public WindowDoor(final int par1, final Material par2Material) {
-        super(par1, Material.wood);
+        super(par1, Material.glass);
         this.setCreativeTab(CreativeTabs.tabDecorations);
         this.setUnlocalizedName("windowdoor");
         this.func_111022_d(Archive.MOD_ID + ":window");

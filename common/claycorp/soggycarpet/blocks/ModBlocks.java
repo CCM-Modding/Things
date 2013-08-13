@@ -2,6 +2,8 @@ package claycorp.soggycarpet.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import claycorp.soggycarpet.utils.Materials;
 import claycorp.soggycarpet.utils.Properties;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -19,6 +21,7 @@ public class ModBlocks {
     public static CarpetConvayorNZY convayornzy;
     public static CarpetDoor trapdoor;
     public static WindowDoor windowdoor;
+    public static BlockFlesh fleshblock;
 
     public static void init() {
         soggycarpet = new BlockSoggyCarpet(Properties.soggycarpetID);
@@ -32,7 +35,8 @@ public class ModBlocks {
         convayornzy = new CarpetConvayorNZY(Properties.convayornzyID);
         convayornxy = new CarpetConvayorNXY(Properties.convayornxyID);
         trapdoor = new CarpetDoor(Properties.trapdoorID, Materials.carpet);
-        windowdoor = new WindowDoor(Properties.windowdoorID, Material.wood);
+        windowdoor = new WindowDoor(Properties.windowdoorID, Material.glass);
+        fleshblock = new BlockFlesh(Properties.fleshblockID, Materials.flesh);
 
         GameRegistry.registerBlock(soggycarpet, "CLAYCORP.SOGGYCARPET.BLOCK");
         GameRegistry.registerBlock(convayorz, "CLAYCORP.CARPETCONVAYORZ.BLOCK");
@@ -46,10 +50,20 @@ public class ModBlocks {
         GameRegistry.registerBlock(convayornxy, "CLAYCORP.CARPETCONVAYORNXY.BLOCK");
         GameRegistry.registerBlock(trapdoor, "CLAYCORP.CARPETTRAPDOOR.BLOCK");
         GameRegistry.registerBlock(windowdoor, "CLAYCORP.WINDOWTRAPDOOR.BLOCK");
+        GameRegistry.registerBlock(fleshblock, "CLAYCORP.FLESHBLOCK.BLOCK");
 
         final int carpetID = Block.field_111031_cC.blockID;
         Block.blocksList[carpetID] = null;
         Block.blocksList[carpetID] = new BlockCarpetModified(carpetID);
+        
+        //Crafting
+        GameRegistry.addRecipe(new ItemStack(fleshblock), new Object[] 
+        	{ 
+        		"FFF",
+        		"FFF",
+        		"FFF",
+            
+        		'F',Item.rottenFlesh});
 
     }
 }

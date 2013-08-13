@@ -23,6 +23,7 @@ public final class Config {
         Properties.convayornxyID = config.getBlock(cat, "CarpetConvayorNXY", 459).getInt();
         Properties.trapdoorID = config.getBlock(cat, "CarpetTrapDoor", 460).getInt();
         Properties.windowdoorID = config.getBlock(cat, "WindowTrapDoor", 461).getInt();
+        Properties.fleshblockID = config.getBlock(cat, "BlockOfFlesh", 462).getInt();
 
         cat = "Entity.Spawns";
         // Properties.bearID = config.get(cat, "ID_Of_Entity", 0).getInt();

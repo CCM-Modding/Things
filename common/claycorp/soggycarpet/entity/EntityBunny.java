@@ -18,7 +18,7 @@ public class EntityBunny extends EntityPigZombie {
 
     public EntityBunny(final World par1World) {
         super(par1World);
-        this.setSize(0.5F, 0.5F);
+        this.setSize(0.3F, 0.3F);
         this.getNavigator().setBreakDoors(true);
         this.experienceValue = Properties.xp;
         this.tasks.addTask(1, new EntityAISwimming(this));
@@ -33,7 +33,7 @@ public class EntityBunny extends EntityPigZombie {
     @Override
     protected void attackEntity(final Entity par1Entity, final float par2) {
         if ((this.attackTime <= 0) && (par2 < 2.0F) && (par1Entity.boundingBox.maxY > this.boundingBox.minY) && (par1Entity.boundingBox.minY < this.boundingBox.maxY)) {
-            this.attackTime = 10;
+            this.attackTime = 1;
             this.attackEntityAsMob(par1Entity);
         }
     }
@@ -41,10 +41,12 @@ public class EntityBunny extends EntityPigZombie {
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(10); // Health
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(50); // Detection
-        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(20); // range
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.5); // Movespeed
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1); // maxHealth
+        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(50); // followRange
+        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(0); // knockbackResistance
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.001); // movementSpeed
+        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(0.001); // attackDamage
+        
     }
 
     @Override
@@ -64,5 +66,38 @@ public class EntityBunny extends EntityPigZombie {
     @Override
     public boolean getCanSpawnHere() {
         return (this.worldObj.difficultySetting > 0) && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+    }
+    /**
+     * Returns the sound this mob makes while it's alive.
+     */
+    @Override
+    protected String getLivingSound()
+    {
+        return "mob.cat.say";
+    }
+
+    /**
+     * Returns the sound this mob makes when it is hurt.
+     */
+    @Override
+    protected String getHurtSound()
+    {
+        return "mob.cat.hitt";
+    }
+
+    /**
+     * Returns the sound this mob makes on death.
+     */
+    @Override
+    protected String getDeathSound()
+    {
+        return "mob.villager.death";
+    }
+    
+    
+    protected float getSoundPitch()
+    {
+		return 5.0F;
+    	
     }
 }

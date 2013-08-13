@@ -13,6 +13,7 @@ public final class Properties { // Block Id's
     public static int convayornxyID;
     public static int trapdoorID;
     public static int windowdoorID;
+    public static int fleshblockID;
 
     // Entity
     public static int totalbear;
@@ -30,5 +31,6 @@ public final class Properties { // Block Id's
     public static int dropquantity2;
     public static int bearhealth;
     public static int xp;
+	
 
 }
