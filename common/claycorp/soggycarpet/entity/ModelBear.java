@@ -84,7 +84,6 @@ public class ModelBear extends ModelBase {
 
     @Override
     public void render(final Entity entity, final float f, final float f1, final float f2, final float f3, final float f4, final float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
         this.setRotationAngles(f, f1, f2, f3, f4, f5);
         this.snout.render(f5);
         this.head.render(f5);
@@ -104,9 +103,14 @@ public class ModelBear extends ModelBase {
     }
 
     public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4, final float f5) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, null);
         this.head.rotateAngleX = f5 / (180F / (float)Math.PI);
         this.head.rotateAngleY = f4 / (180F / (float)Math.PI);
+        this.snout.rotateAngleX = this.head.rotateAngleX;
+        this.snout.rotateAngleY = this.head.rotateAngleY;
+        this.ear1.rotateAngleX = this.head.rotateAngleX;
+        this.ear1.rotateAngleY = this.head.rotateAngleY;
+        this.ear2.rotateAngleX = this.head.rotateAngleX;
+        this.ear2.rotateAngleY = this.head.rotateAngleY;
         this.body.rotateAngleX = ((float)Math.PI / 2F);
         this.leg1.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
         this.leg2.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float)Math.PI) * 1.4F * f2;

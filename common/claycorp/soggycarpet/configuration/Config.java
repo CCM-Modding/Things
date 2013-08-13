@@ -32,7 +32,7 @@ public final class Config {
         Properties.xp = config.get(cat, "How_Much_XP_Bears_Drop", 100).getInt();
         Properties.beartracking = config.get(cat, "Distance_Bears_Will_Not_Enjoy_You", 15).getInt();
         Properties.totalbear = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
-        Properties.bearmovespeed = config.get(cat, "Move_Speed", 1.9).getInt();
+        Properties.bearmovespeed = config.get(cat, "Move_Speed", 0.5).getInt();
         Properties.bearattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
         Properties.playerdamage = config.get(cat, "Damage_To_Player", 10).getInt();
         Properties.villagerdamage = config.get(cat, "Damage_To_Villager", 100).getInt();

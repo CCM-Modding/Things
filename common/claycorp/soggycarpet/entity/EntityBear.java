@@ -26,7 +26,7 @@ public class EntityBear extends EntityMob {
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, Properties.bearmovespeed, true));
         this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(6, new EntityAIWander(this, 5.0D));
+        this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
@@ -62,13 +62,10 @@ public class EntityBear extends EntityMob {
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
-//        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.bearhealth); // Health
-//        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.beartracking); // Detection
-//        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bearmovespeed); // range
-//        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bearmovespeed); // Movespeed
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(40.0D);
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.23000000417232513D);
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(3.0D);
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1); // maxHealth
+        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(50); // followRange
+        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(0); // knockbackResistance
+        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(0.001); // attackDamage
     }
 
     @Override
