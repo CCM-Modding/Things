@@ -102,7 +102,7 @@ public class ModelBear extends ModelBase {
         model.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4, final float f5) {
+    public void setRotationAngles(final float f1, final float f2, final float f3, final float f4, final float f5, final float f6) {
         this.head.rotateAngleX = f5 / (180F / (float)Math.PI);
         this.head.rotateAngleY = f4 / (180F / (float)Math.PI);
         this.snout.rotateAngleX = this.head.rotateAngleX;
