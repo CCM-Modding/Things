@@ -14,23 +14,23 @@ public final class Properties { // Block Id's
     public static int trapdoorID;
     public static int windowdoorID;
     public static int fleshblockID;
+    public static int fleshslabID;
 
     // Entity
-    public static int totalbear;
-    public static int bearID;
+    public static int beartotal;
     public static int beartracking;
-    public static int bearmovespeed;
+    public static double bearmovespeed;
     public static int bearattackspeed;
-    public static int playerdamage;
-    public static int villagerdamage;
-    public static int passivedamage;
-    public static int hostiledamage;
-    public static int beardrop;
-    public static int beardrop2;
-    public static int dropquantity;
-    public static int dropquantity2;
     public static int bearhealth;
-    public static int xp;
+    public static int bearxp;
+    public static int beardamage;
+    public static int bearfollowrange;
+    public static int bearknockbackresistance;
+    public static int bearplayerkillitemdrop;
+    public static int bearquantityofdropplayerkill;
+    public static int bearkillitemdrop;
+    public static int bearquantityofdropkill;
+
 	
 
 }

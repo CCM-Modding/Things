@@ -22,6 +22,7 @@ public class ModBlocks {
     public static CarpetDoor trapdoor;
     public static WindowDoor windowdoor;
     public static BlockFlesh fleshblock;
+    public static BlockFlesh fleshslab;
 
     public static void init() {
         soggycarpet = new BlockSoggyCarpet(Properties.soggycarpetID);
@@ -37,6 +38,7 @@ public class ModBlocks {
         trapdoor = new CarpetDoor(Properties.trapdoorID, Materials.carpet);
         windowdoor = new WindowDoor(Properties.windowdoorID, Material.glass);
         fleshblock = new BlockFlesh(Properties.fleshblockID, Materials.flesh);
+        fleshslab = new BlockFlesh(Properties.fleshslabID, Materials.flesh);
 
         GameRegistry.registerBlock(soggycarpet, "CLAYCORP.SOGGYCARPET.BLOCK");
         GameRegistry.registerBlock(convayorz, "CLAYCORP.CARPETCONVAYORZ.BLOCK");
@@ -51,6 +53,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(trapdoor, "CLAYCORP.CARPETTRAPDOOR.BLOCK");
         GameRegistry.registerBlock(windowdoor, "CLAYCORP.WINDOWTRAPDOOR.BLOCK");
         GameRegistry.registerBlock(fleshblock, "CLAYCORP.FLESHBLOCK.BLOCK");
+        GameRegistry.registerBlock(fleshslab, "CLAYCORP.FLESHSLAB.BLOCK");
 
         final int carpetID = Block.field_111031_cC.blockID;
         Block.blocksList[carpetID] = null;

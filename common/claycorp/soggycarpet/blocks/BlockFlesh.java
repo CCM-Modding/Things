@@ -13,7 +13,7 @@ public class BlockFlesh extends Block{
         this.setCreativeTab(CreativeTabs.tabMisc);
         this.setUnlocalizedName("fleshblock");
         this.func_111022_d(Archive.MOD_ID + ":fleshblock");
-        this.setHardness(1);
+        this.setHardness(0);
         this.setResistance(1);
         this.setStepSound(soundPowderFootstep);
         

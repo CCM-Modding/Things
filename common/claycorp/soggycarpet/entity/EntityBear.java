@@ -3,14 +3,15 @@ package claycorp.soggycarpet.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -22,15 +23,19 @@ public class EntityBear extends EntityMob {
         super(world);
         this.setSize(1.1F, 1.5F);
         this.getNavigator().setBreakDoors(true);
-        this.experienceValue = Properties.xp;
-        this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, Properties.bearmovespeed, true));
-        this.tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIBreakDoor(this));
+        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, false));
+        this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityAnimal.class, 1.0D, false));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
-        this.tasks.addTask(7, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, true));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityAnimal.class, 0, false));
+        this.experienceValue = Properties.bearxp;
     }
 
     @Override
@@ -62,19 +67,22 @@ public class EntityBear extends EntityMob {
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1); // maxHealth
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(50); // followRange
-        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(0); // knockbackResistance
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(0.001); // attackDamage
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.bearhealth); // maxHealth
+        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.bearfollowrange); // followRange
+        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.bearknockbackresistance); // knockbackResistance
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bearmovespeed); // move speed
+        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.beardamage); // attackDamage
     }
-
+    /**
+     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
+     * par2 - Level of Looting used to kill this mob.
+     */
     @Override
-    protected void dropFewItems(final boolean par1, final int par2) {
-        final int amount = this.rand.nextInt(3) + 1 + this.rand.nextInt(1 + par2);
-
-        for (int iter = 0; iter < amount; ++iter) {
-            this.dropItem(Properties.beardrop, Properties.dropquantity);
-        }
+    protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
+    	if (playerHit == true);
+    		this.dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
+    	if (playerHit == false);
+    		this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
     }
 
     /**
@@ -82,7 +90,7 @@ public class EntityBear extends EntityMob {
      */
     @Override
     protected String getLivingSound() {
-        return "mob.ghast.say";
+        return "mob.endermen.idle";
     }
 
     /**
@@ -90,7 +98,7 @@ public class EntityBear extends EntityMob {
      */
     @Override
     protected String getHurtSound() {
-        return "mob.ghast.say";
+        return "mob.ghast.scream";
     }
 
     /**
@@ -115,13 +123,13 @@ public class EntityBear extends EntityMob {
     }
 
     @Override
-    protected void updateAITasks() {
-        super.updateAITasks();
-    }
-
-    @Override
     public int getMaxSpawnedInChunk() {
-        return Properties.totalbear;
+        return Properties.beartotal;
+    }
+    protected float getSoundPitch()
+    {
+		return -10.0F;
+    	
     }
 
 }

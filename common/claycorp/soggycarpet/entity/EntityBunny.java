@@ -20,7 +20,7 @@ public class EntityBunny extends EntityPigZombie {
         super(par1World);
         this.setSize(0.3F, 0.3F);
         this.getNavigator().setBreakDoors(true);
-        this.experienceValue = Properties.xp;
+        this.experienceValue = Properties.bearxp;
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 5, true));
         this.tasks.addTask(3, new EntityAIWander(this, 0.5D));

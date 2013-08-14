@@ -11,7 +11,7 @@ public class RenderBear extends RenderLiving
 	
 	public RenderBear()
 	{
-		super(model, 0.25F);
+		super(model, 1.05F);
 	}
 
 	protected ResourceLocation func_110832_a(EntityBear par1EntityCow)

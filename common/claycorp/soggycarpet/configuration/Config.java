@@ -24,24 +24,25 @@ public final class Config {
         Properties.trapdoorID = config.getBlock(cat, "CarpetTrapDoor", 460).getInt();
         Properties.windowdoorID = config.getBlock(cat, "WindowTrapDoor", 461).getInt();
         Properties.fleshblockID = config.getBlock(cat, "BlockOfFlesh", 462).getInt();
+        Properties.fleshslabID = config.getBlock(cat, "SlabOfFlesh", 463).getInt();
 
         cat = "Entity.Spawns";
-        // Properties.bearID = config.get(cat, "ID_Of_Entity", 0).getInt();
-        Properties.totalbear = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
-        Properties.bearhealth = config.get(cat, "Health_Of_Bears", 5).getInt();
-        Properties.xp = config.get(cat, "How_Much_XP_Bears_Drop", 100).getInt();
-        Properties.beartracking = config.get(cat, "Distance_Bears_Will_Not_Enjoy_You", 15).getInt();
-        Properties.totalbear = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
-        Properties.bearmovespeed = config.get(cat, "Move_Speed", 0.5).getInt();
+        Properties.beartotal = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
+        Properties.bearhealth = config.get(cat, "Health_Of_Bears", 10).getInt();
+        Properties.bearxp = config.get(cat, "How_Much_XP_Bears_Drop", 100).getInt();
+        Properties.beartracking = config.get(cat, "Distance_Bears_Will_Not_Enjoy_You", 10).getInt();
+        Properties.bearmovespeed = config.get(cat, "Move_Speed", 0.341).getDouble(0);
         Properties.bearattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
-        Properties.playerdamage = config.get(cat, "Damage_To_Player", 10).getInt();
-        Properties.villagerdamage = config.get(cat, "Damage_To_Villager", 100).getInt();
-        Properties.passivedamage = config.get(cat, "Damage_To_Passives", 10).getInt();
-        Properties.hostiledamage = config.get(cat, "Damage_To_Hostiles", 10).getInt();
-        Properties.beardrop = config.get(cat, "ItemID_Bears_Drop_From_Player_Kill", 349).getInt();
-        Properties.beardrop2 = config.get(cat, "ItemID_Bears_Drop_From_Player_Kill2", 388).getInt();
-        Properties.dropquantity = config.get(cat, "Quanity_Of_Player_Kill", 2).getInt();
-        Properties.dropquantity2 = config.get(cat, "Quanity_Of_Player_Kill2", 2).getInt();
+        Properties.beardamage = config.get(cat, "Damage_Per_Attack", 100).getInt();
+        Properties.bearknockbackresistance = config.get(cat, "Resistance_To_Knockback", 10).getInt();
+        Properties.bearfollowrange = config.get(cat, "How_Far_Bears_Folow_To_Attack", 50).getInt();
+        Properties.bearplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 57).getInt();
+        Properties.bearquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
+        Properties.bearkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 300).getInt();
+        Properties.bearquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 10).getInt();
+
+
+
 
         if (config.hasChanged()) {
             config.save();
