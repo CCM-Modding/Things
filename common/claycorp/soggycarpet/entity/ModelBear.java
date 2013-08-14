@@ -13,8 +13,8 @@ import net.minecraft.util.MathHelper;
 
 public class ModelBear extends ModelBase {
     // fields
-    ModelRenderer snout;
     ModelRenderer head;
+    ModelRenderer snout;
     ModelRenderer body;
     ModelRenderer leg1;
     ModelRenderer leg2;
@@ -26,18 +26,18 @@ public class ModelBear extends ModelBase {
     public ModelBear() {
         this.textureWidth = 128;
         this.textureHeight = 64;
-        this.snout = new ModelRenderer(this, 0, 30);
-        this.snout.addBox(0F, 0F, 0F, 4, 4, 4);
-        this.snout.setRotationPoint(-2F, 8F, -18F);
-        this.snout.setTextureSize(128, 64);
-        this.snout.mirror = true;
-        this.setRotation(this.snout, 0F, 0F, 0F);
         this.head = new ModelRenderer(this, 0, 0);
         this.head.addBox(-3F, -4F, -6F, 8, 8, 6);
         this.head.setRotationPoint(-1F, 9F, -8F);
         this.head.setTextureSize(128, 64);
         this.head.mirror = true;
         this.setRotation(this.head, 0F, 0F, 0F);
+        this.snout = new ModelRenderer(this, 0, 30);
+        this.snout.addBox(-1F, -1F, -10F, 4, 4, 4);
+        this.snout.setRotationPoint(-1F, 9F, -8F);
+        this.snout.setTextureSize(128, 64);
+        this.snout.mirror = true;
+        this.setRotation(this.snout, 0F, 0F, 0F);
         this.body = new ModelRenderer(this, 18, 4);
         this.body.addBox(-6F, -10F, -7F, 18, 23, 15);
         this.body.setRotationPoint(-3F, 10F, 2F);
@@ -69,14 +69,14 @@ public class ModelBear extends ModelBase {
         this.leg4.mirror = true;
         this.setRotation(this.leg4, 0F, 0F, 0F);
         this.ear1 = new ModelRenderer(this, 22, 0);
-        this.ear1.addBox(-3.5F, -1.5F, -7.5F, 1, 1, 1);
-        this.ear1.setRotationPoint(-1F, 6F, -7F);
+        this.ear1.addBox(-3.5F, -4.5F, -6.5F, 1, 1, 1);
+        this.ear1.setRotationPoint(-1F, 9F, -8F);
         this.ear1.setTextureSize(128, 64);
         this.ear1.mirror = true;
         this.setRotation(this.ear1, 0F, 0F, 0F);
         this.ear2 = new ModelRenderer(this, 22, 0);
-        this.ear2.addBox(4F, -4F, -4F, 1, 1, 1);
-        this.ear2.setRotationPoint(-0.5F, 8.5F, -10.5F);
+        this.ear2.addBox(4.5F, -4.5F, -6.5F, 1, 1, 1);
+        this.ear2.setRotationPoint(-1F, 9F, -8F);
         this.ear2.setTextureSize(128, 64);
         this.ear2.mirror = true;
         this.setRotation(this.ear2, 0F, 0F, 0F);
