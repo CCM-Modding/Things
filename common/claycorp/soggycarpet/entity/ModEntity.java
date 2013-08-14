@@ -1,5 +1,8 @@
 package claycorp.soggycarpet.entity;
 
+import claycorp.soggycarpet.entity.bear.EntityBear;
+import claycorp.soggycarpet.entity.bunny.EntityBunny;
+import claycorp.soggycarpet.entity.shroom.EntityShroom;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
@@ -11,6 +14,7 @@ public class ModEntity {
     public static void init() {
         registerEntity(EntityBunny.class, "EntityRabbit", 0xff86d3, 0x571b60);
         registerEntity(EntityBear.class, "EntityBear", 0xff86d3, 0x571b60);
+        registerEntity(EntityShroom.class, "EntityShroom", 0xff86d3, 0x571b60);
     }
 
     /**

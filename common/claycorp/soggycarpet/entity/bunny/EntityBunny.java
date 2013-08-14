@@ -1,4 +1,4 @@
-package claycorp.soggycarpet.entity;
+package claycorp.soggycarpet.entity.bunny;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;

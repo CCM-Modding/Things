@@ -1,4 +1,4 @@
-package claycorp.soggycarpet.utils;
+package claycorp.soggycarpet.utils.proxy;
 
 public class CommonProxy {
     public void initSounds() {

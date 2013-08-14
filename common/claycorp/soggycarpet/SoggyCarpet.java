@@ -4,7 +4,7 @@ import claycorp.soggycarpet.blocks.ModBlocks;
 import claycorp.soggycarpet.configuration.Config;
 import claycorp.soggycarpet.entity.ModEntity;
 import claycorp.soggycarpet.utils.Archive;
-import claycorp.soggycarpet.utils.CommonProxy;
+import claycorp.soggycarpet.utils.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

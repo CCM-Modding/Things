@@ -1,4 +1,4 @@
-package claycorp.soggycarpet.entity;
+package claycorp.soggycarpet.entity.bear;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;

@@ -4,8 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import claycorp.soggycarpet.utils.Materials;
 import claycorp.soggycarpet.utils.Properties;
+import claycorp.soggycarpet.utils.materials.Materials;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks {

@@ -1,4 +1,4 @@
-package claycorp.soggycarpet.utils;
+package claycorp.soggycarpet.utils.materials;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

@@ -1,7 +1,7 @@
 package claycorp.soggycarpet.blocks;
 
 import claycorp.soggycarpet.utils.Archive;
-import claycorp.soggycarpet.utils.Materials;
+import claycorp.soggycarpet.utils.materials.Materials;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

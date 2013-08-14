@@ -10,7 +10,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import claycorp.soggycarpet.utils.Archive;
-import claycorp.soggycarpet.utils.Materials;
+import claycorp.soggycarpet.utils.materials.Materials;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
