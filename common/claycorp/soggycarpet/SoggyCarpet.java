@@ -22,7 +22,7 @@ public class SoggyCarpet {
     @Instance(Archive.MOD_ID)
     public static SoggyCarpet instance;
 
-    @SidedProxy(clientSide = "claycorp.soggycarpet.utils.ClientProxy", serverSide = "claycorp.soggycarpet.utils.CommonProxy")
+    @SidedProxy(clientSide = "claycorp.soggycarpet.utils.proxy.ClientProxy", serverSide = "claycorp.soggycarpet.utils.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @EventHandler

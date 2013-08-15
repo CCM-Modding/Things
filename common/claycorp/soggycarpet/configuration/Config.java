@@ -36,10 +36,24 @@ public final class Config {
         Properties.beardamage = config.get(cat, "Damage_Per_Attack", 100).getInt();
         Properties.bearknockbackresistance = config.get(cat, "Resistance_To_Knockback", 10).getInt();
         Properties.bearfollowrange = config.get(cat, "How_Far_Bears_Folow_To_Attack", 50).getInt();
-        Properties.bearplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 57).getInt();
+        Properties.bearplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 56).getInt();
         Properties.bearquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
         Properties.bearkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 300).getInt();
         Properties.bearquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 10).getInt();
+        
+        Properties.bunnytotal = config.get(cat, "Max_Bunnys_Per_Chunk", 15).getInt();
+        Properties.bunnyhealth = config.get(cat, "Health_Of_Bunnys", 5).getInt();
+        Properties.bunnyxp = config.get(cat, "How_Much_XP_bunnys_Drop", 1).getInt();
+        Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
+        Properties.bunnymovespeed = config.get(cat, "Move_Speed", 0.741).getDouble(0);
+        Properties.bunnyattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
+        Properties.bunnydamage = config.get(cat, "Damage_Per_Attack", 1).getInt();
+        Properties.bunnyknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
+        Properties.bunnyfollowrange = config.get(cat, "How_Far_Bunnys_Folow_To_Attack", 50).getInt();
+        Properties.rabbitplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 50).getInt();
+        Properties.rabbitquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
+        Properties.rabbitkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 380).getInt();
+        Properties.rabbitquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 1).getInt();
 
 
 

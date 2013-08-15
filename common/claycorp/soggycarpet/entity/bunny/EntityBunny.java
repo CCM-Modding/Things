@@ -20,7 +20,7 @@ public class EntityBunny extends EntityPigZombie {
         super(par1World);
         this.setSize(0.3F, 0.3F);
         this.getNavigator().setBreakDoors(true);
-        this.experienceValue = Properties.bearxp;
+        this.experienceValue = Properties.bunnyxp;
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 5, true));
         this.tasks.addTask(3, new EntityAIWander(this, 0.5D));
@@ -33,7 +33,7 @@ public class EntityBunny extends EntityPigZombie {
     @Override
     protected void attackEntity(final Entity par1Entity, final float par2) {
         if ((this.attackTime <= 0) && (par2 < 2.0F) && (par1Entity.boundingBox.maxY > this.boundingBox.minY) && (par1Entity.boundingBox.minY < this.boundingBox.maxY)) {
-            this.attackTime = 1;
+            this.attackTime = Properties.bunnyattackspeed;
             this.attackEntityAsMob(par1Entity);
         }
     }
@@ -41,12 +41,19 @@ public class EntityBunny extends EntityPigZombie {
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1); // maxHealth
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(50); // followRange
-        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(0); // knockbackResistance
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.001); // movementSpeed
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(0.001); // attackDamage
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.bunnyhealth); // maxHealth
+        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.bunnyfollowrange); // followRange
+        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.bunnyknockbackresistance); // knockbackResistance
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bunnymovespeed); // movementSpeed
+        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.bunnydamage); // attackDamage
         
+    }
+    @Override
+    protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
+    	if (playerHit == true);
+    		this.dropItem(Properties.rabbitplayerkillitemdrop, Properties.rabbitquantityofdropplayerkill);
+    	if (playerHit == false);
+    		this.dropItem(Properties.rabbitkillitemdrop, Properties.rabbitquantityofdropkill);
     }
 
     @Override
