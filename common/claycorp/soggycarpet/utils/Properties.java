@@ -46,6 +46,7 @@ public final class Properties { // Block Id's
     public static int rabbitquantityofdropplayerkill;
     public static int rabbitkillitemdrop;
     public static int rabbitquantityofdropkill;
+    public static boolean bunnydoor;
 
 	
 

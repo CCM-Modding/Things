@@ -26,10 +26,11 @@ public final class Config {
         Properties.fleshblockID = config.getBlock(cat, "BlockOfFlesh", 462).getInt();
         Properties.fleshslabID = config.getBlock(cat, "SlabOfFlesh", 463).getInt();
 
-        cat = "Entity.Spawns";
-        Properties.beartotal = config.get(cat, "Max_Bears_Per_Chunk", 3).getInt();
-        Properties.bearhealth = config.get(cat, "Health_Of_Bears", 10).getInt();
-        Properties.bearxp = config.get(cat, "How_Much_XP_Bears_Drop", 100).getInt();
+        cat = "Entity.Bear";
+        config.addCustomCategoryComment(cat, "Values For Bears");
+        Properties.beartotal = config.get(cat, "Max_Per_Chunk", 3).getInt();
+        Properties.bearhealth = config.get(cat, "Health", 10).getInt();
+        Properties.bearxp = config.get(cat, "XP_Drop", 100).getInt();
         Properties.beartracking = config.get(cat, "Distance_Bears_Will_Not_Enjoy_You", 10).getInt();
         Properties.bearmovespeed = config.get(cat, "Move_Speed", 0.341).getDouble(0);
         Properties.bearattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
@@ -40,10 +41,12 @@ public final class Config {
         Properties.bearquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
         Properties.bearkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 300).getInt();
         Properties.bearquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 10).getInt();
-        
-        Properties.bunnytotal = config.get(cat, "Max_Bunnys_Per_Chunk", 15).getInt();
-        Properties.bunnyhealth = config.get(cat, "Health_Of_Bunnys", 5).getInt();
-        Properties.bunnyxp = config.get(cat, "How_Much_XP_bunnys_Drop", 1).getInt();
+        cat= "Entity.Bunny";
+        config.addCustomCategoryComment(cat, "Values For Bunnys");
+        Properties.bunnytotal = config.get(cat, "Max_Per_Chunk", 15).getInt();
+        Properties.bunnydoor = config.get(cat, "Break_Doors", true).getBoolean(true);
+        Properties.bunnyhealth = config.get(cat, "Health", 5).getInt();
+        Properties.bunnyxp = config.get(cat, "XP_Drop", 1).getInt();
         Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
         Properties.bunnymovespeed = config.get(cat, "Move_Speed", 0.741).getDouble(0);
         Properties.bunnyattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();

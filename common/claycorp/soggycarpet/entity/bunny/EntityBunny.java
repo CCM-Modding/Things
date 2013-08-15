@@ -15,14 +15,18 @@ import net.minecraft.world.World;
 import claycorp.soggycarpet.utils.Properties;
 
 public class EntityBunny extends EntityPigZombie {
-
+    /**private int randomSoundDelay;
+    private Entity field_110191_bu;
+    private static final UUID field_110189_bq = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
+    private static final AttributeModifier field_110190_br = (new AttributeModifier(field_110189_bq, "Attacking speed boost", 0.45D, 0)).func_111168_a(false);
+    **/
     public EntityBunny(final World par1World) {
         super(par1World);
         this.setSize(0.3F, 0.3F);
-        this.getNavigator().setBreakDoors(true);
+        this.getNavigator().setBreakDoors(Properties.bunnydoor);
         this.experienceValue = Properties.bunnyxp;
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 5, true));
+        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(3, new EntityAIWander(this, 0.5D));
         this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
         this.tasks.addTask(4, new EntityAILookIdle(this));
@@ -38,6 +42,7 @@ public class EntityBunny extends EntityPigZombie {
         }
     }
 
+    
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
@@ -56,14 +61,29 @@ public class EntityBunny extends EntityPigZombie {
     		this.dropItem(Properties.rabbitkillitemdrop, Properties.rabbitquantityofdropkill);
     }
 
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
+    /**@Override
+    public void onUpdate()
+    {
+        if (this.field_110191_bu != this.entityToAttack && !this.worldObj.isRemote)
+        {
+            AttributeInstance attributeinstance = this.func_110148_a(SharedMonsterAttributes.field_111263_d);
+            attributeinstance.func_111124_b(field_110190_br);
 
-        if (!this.worldObj.isRemote && (this.worldObj.difficultySetting == 0)) {
-            this.setDead();
+            if (this.entityToAttack != null)
+            {
+                attributeinstance.func_111121_a(field_110190_br);
+            }
         }
-    }
+
+        this.field_110191_bu = this.entityToAttack;
+
+        if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
+        {
+            this.playSound("mob.cat.say", this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+        }
+
+        super.onUpdate();
+    }**/
 
     @Override
     public boolean isAIEnabled() {
