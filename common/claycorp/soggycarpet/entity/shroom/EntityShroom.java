@@ -6,6 +6,7 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.World;
 
 public class EntityShroom extends EntitySlime{
+    public boolean angry = false;
 
 	public EntityShroom(World par1World) {
 		super(par1World);
@@ -14,7 +15,14 @@ public class EntityShroom extends EntitySlime{
 	}
     @Override
     public boolean isAIEnabled() {
-        return true;
+        if (this.angry) {
+            // Angry mushrooms use the default slime AI, not the fancy
+            // new system.
+            return false;
+        } else {
+            // Non-angry mushrooms are downright devious.
+            return true;
+        }
     }
     @Override
     protected void func_110147_ax() {
@@ -57,6 +65,7 @@ public class EntityShroom extends EntitySlime{
                 float f1 = ((float)(k / 2) - 0.5F) * (float)i / 4.0F;
                 EntityShroom babyshroom = new EntityShroom(this.worldObj);
                 babyshroom.setSlimeSize(i / 2);
+                babyshroom.angry = true;
                 babyshroom.setLocationAndAngles(this.posX + (double)f, this.posY + 0.5D, this.posZ + (double)f1, this.rand.nextFloat() * 360.0F, 0.0F);
                 this.worldObj.spawnEntityInWorld(babyshroom);
             }
