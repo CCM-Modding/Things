@@ -30,17 +30,17 @@ public class EntityShroom extends EntitySlime{
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.bearhealth); // maxHealth
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.bearfollowrange); // followRange
-        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.bearknockbackresistance); // knockbackResistance
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bearmovespeed); // move speed
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.beardamage); // attackDamage
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.shroomhealth); // maxHealth
+        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.shroomfollowrange); // followRange
+        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.shroomknockbackresistance); // knockbackResistance
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.shroommovespeed); // move speed
+        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.shroomdamage); // attackDamage
     }
     @Override
     protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
     		if (playerHit == true);
-    			this.dropItem(Properties.slimeplayerkillitemdrop, Properties.slimequantityofdropplayerkill);
+    			this.dropItem(Properties.shroomplayerkillitemdrop, Properties.shroomquantityofdropplayerkill);
     		if (playerHit == false);
-    			this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
+    			this.dropItem(Properties.shroomkillitemdrop, Properties.shroomquantityofdropkill);
     }
 }
