@@ -79,9 +79,9 @@ public class EntityBear extends EntityMob {
      */
     @Override
     protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
-    		if (playerHit == true);
+    		if (playerHit == true)
     			this.dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
-    		if (playerHit == false);
+    		if (playerHit == false)
     			this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
     }
 

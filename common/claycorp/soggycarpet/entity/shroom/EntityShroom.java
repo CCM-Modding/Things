@@ -27,9 +27,9 @@ public class EntityShroom extends EntitySlime{
     }
     @Override
     protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
-    		if (playerHit == true);
+    		if (playerHit == true)
     			this.dropItem(Properties.shroomplayerkillitemdrop, Properties.shroomquantityofdropplayerkill);
-    		if (playerHit == false);
+    		if (playerHit == false)
     			this.dropItem(Properties.shroomkillitemdrop, Properties.shroomquantityofdropkill);
     }
 }
