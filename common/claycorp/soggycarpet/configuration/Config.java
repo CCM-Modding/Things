@@ -60,14 +60,15 @@ public final class Config {
         cat= "Entity.Shroom";
         config.addCustomCategoryComment(cat, "Values For Shrooms");
         Properties.shroomtotal = config.get(cat, "Max_Per_Chunk", 15).getInt();
+        Properties.shroom_deviousness = config.get(cat, "Deviousness", 200).getInt();
         Properties.shroomhealth = config.get(cat, "Health", 5).getInt();
         Properties.shroomxp = config.get(cat, "XP_Drop", 1).getInt();
         //Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
-        Properties.shroommovespeed = config.get(cat, "Move_Speed", 0.741).getDouble(0);
+        Properties.shroommovespeed = config.get(cat, "Move_Speed", 0.1).getDouble(0);
         //Properties.bunnyattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
-        Properties.shroomdamage = config.get(cat, "Damage_Per_Attack", 1).getInt();
+        Properties.shroomdamage = config.get(cat, "Damage_Per_Attack", 4).getInt();
         Properties.shroomknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
-        Properties.shroomfollowrange = config.get(cat, "How_Far_Bunnys_Folow_To_Attack", 50).getInt();
+        Properties.shroomfollowrange = config.get(cat, "How_Far_Shrooms_Folow_To_Attack", 5).getInt();
         Properties.shroomplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 50).getInt();
         Properties.shroomquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
         Properties.shroomkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 380).getInt();

@@ -51,6 +51,7 @@ public final class Properties { // Block Id's
     //shroom
     public static int shroomtotal;
     public static int shroomtracking;
+    public static int shroom_deviousness;
     public static double shroommovespeed;
     public static int shroomattackspeed;
     public static int shroomhealth;
