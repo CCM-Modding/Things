@@ -59,7 +59,7 @@ public final class Config {
         Properties.rabbitquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 1).getInt();
         cat= "Entity.Shroom";
         config.addCustomCategoryComment(cat, "Values For Shrooms");
-        Properties.shroomhealth = config.get(cat, "Max_Per_Chunk", 15).getInt();
+        Properties.shroomtotal = config.get(cat, "Max_Per_Chunk", 15).getInt();
         Properties.shroomhealth = config.get(cat, "Health", 5).getInt();
         Properties.shroomxp = config.get(cat, "XP_Drop", 1).getInt();
         //Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
