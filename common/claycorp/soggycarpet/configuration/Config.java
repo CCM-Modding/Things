@@ -60,12 +60,11 @@ public final class Config {
         cat= "Entity.Shroom";
         config.addCustomCategoryComment(cat, "Values For Shrooms");
         Properties.shroomhealth = config.get(cat, "Max_Per_Chunk", 15).getInt();
-        Properties.bunnydoor = config.get(cat, "Break_Doors", true).getBoolean(true);
         Properties.shroomhealth = config.get(cat, "Health", 5).getInt();
-        Properties.bunnyxp = config.get(cat, "XP_Drop", 1).getInt();
-        Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
+        Properties.shroomxp = config.get(cat, "XP_Drop", 1).getInt();
+        //Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
         Properties.shroommovespeed = config.get(cat, "Move_Speed", 0.741).getDouble(0);
-        Properties.bunnyattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
+        //Properties.bunnyattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
         Properties.shroomdamage = config.get(cat, "Damage_Per_Attack", 1).getInt();
         Properties.shroomknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
         Properties.shroomfollowrange = config.get(cat, "How_Far_Bunnys_Folow_To_Attack", 50).getInt();
