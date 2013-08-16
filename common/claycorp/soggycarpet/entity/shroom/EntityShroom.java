@@ -23,7 +23,6 @@ public class EntityShroom extends EntitySlime{
         this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.shroomfollowrange); // followRange
         this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.shroomknockbackresistance); // knockbackResistance
         this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.shroommovespeed); // move speed
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.shroomdamage); // attackDamage
     }
     @Override
     protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
@@ -31,5 +30,44 @@ public class EntityShroom extends EntitySlime{
     			this.dropItem(Properties.shroomplayerkillitemdrop, Properties.shroomquantityofdropplayerkill);
     		if (playerHit == false)
     			this.dropItem(Properties.shroomkillitemdrop, Properties.shroomquantityofdropkill);
+    }
+
+    /**
+     * Gets the amount of damage dealt to the player when "attacked" by the slime.
+     */
+    protected int getAttackStrength()
+    {
+        return this.getSlimeSize() * Properties.shroomdamage;
+    }
+
+    /**
+     * Will get destroyed next tick.
+     */
+    public void setDead()
+    {
+        int i = this.getSlimeSize();
+
+        if (!this.worldObj.isRemote && i > 1 && this.func_110143_aJ() <= 0.0F)
+        {
+            int j = 2 + this.rand.nextInt(3);
+
+            for (int k = 0; k < j; ++k)
+            {
+                float f = ((float)(k % 2) - 0.5F) * (float)i / 4.0F;
+                float f1 = ((float)(k / 2) - 0.5F) * (float)i / 4.0F;
+                EntityShroom babyshroom = new EntityShroom(this.worldObj);
+                babyshroom.setSlimeSize(i / 2);
+                babyshroom.setLocationAndAngles(this.posX + (double)f, this.posY + 0.5D, this.posZ + (double)f1, this.rand.nextFloat() * 360.0F, 0.0F);
+                this.worldObj.spawnEntityInWorld(babyshroom);
+            }
+        }
+
+        // Sadly, we have to go up an extra level to avoid spawning slimes, and
+        // Java doesn't allow that.
+        //super.setDead();
+
+        // Happily, what's actually done at the next level up (all the way at
+        // Entity) is really simple:
+        this.isDead = true;
     }
 }
