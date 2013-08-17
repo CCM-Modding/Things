@@ -185,7 +185,21 @@ public class EntityShroom extends EntityMob {
 
     public boolean attackEntityAsMob(Entity target)
     {
+        // Store the entity's motion info.
+        boolean wasAirBorne = target.isAirBorne;
+        double oldMotionX   = target.motionX;
+        double oldMotionY   = target.motionY;
+        double oldMotionZ   = target.motionZ;
+
+        // Do the actual attack
         boolean successful = super.attackEntityAsMob(target);
+
+        // Restore the saved motion info, undoing knockback.
+        target.isAirBorne = wasAirBorne;
+        target.motionX    = oldMotionX;
+        target.motionY    = oldMotionY;
+        target.motionZ    = oldMotionZ;
+
         boolean dead = false;
 
         if (target instanceof EntityLiving) {
