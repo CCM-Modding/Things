@@ -33,6 +33,10 @@ public class FeignInnocence extends EntityAIBase
             // this mob.
             EntityPlayer player = (EntityPlayer)iterator.next();
 
+            if (player.func_110143_aJ() <= 0.0F) {
+                continue;
+            }
+
             Vec3 playerLook = player.getLook(1.0F).normalize();
             Vec3 myDirection = me.worldObj.getWorldVec3Pool().getVecFromPool(
                                    me.posX - player.posX,
