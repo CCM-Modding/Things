@@ -202,11 +202,11 @@ public class EntityShroom extends EntityMob {
 
         boolean dead = false;
 
-        if (target instanceof EntityLiving) {
-            dead = ((EntityLiving)target).func_110143_aJ() <= 0.0F;
+        if (target instanceof EntityLivingBase) {
+            dead = ((EntityLivingBase)target).func_110143_aJ() <= 0.0F;
         }
 
-        if (successful && dead && this.rand.nextInt(2) > 0) {
+        if (successful && dead && (target instanceof EntityPlayer || this.rand.nextInt(2) > 0)) {
             int size = this.getSlimelikeSize();
 
             if (size == 1) {
