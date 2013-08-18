@@ -2,21 +2,25 @@ package claycorp.soggycarpet.entity.shroom;
 
 import claycorp.soggycarpet.utils.Properties;
 import net.minecraft.command.IEntitySelector;
+import net.minecraft.block.Block;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeInstance;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.UUID;
 
 public class EntityShroom extends EntityMob {
+    public static final double RADIUS = 2;
     public static NonMushroomEntitySelector nonMushrooms = new NonMushroomEntitySelector();
     private static final UUID angrySpeedBoostUUID = UUID.fromString("48356db2-99df-4c3b-b6b9-0be3b8b1f99b");
     private static final AttributeModifier angrySpeedBoost = new AttributeModifier(angrySpeedBoostUUID, "Angry speed boost", 1.0D, 1);
@@ -238,11 +242,138 @@ public class EntityShroom extends EntityMob {
         return successful;
     }
 
-    // Per MCPBot, EntityLivingBase.isOnSameTeam
+    // EntityLivingBase.isOnSameTeam
     public boolean func_142014_c(EntityLivingBase otherEntity) {
         return otherEntity instanceof EntityShroom;
     }
 
+    // Shrooms spawn in a circle around brown and red mushrooms.
+    public boolean getCanSpawnHere() {
+        int x = MathHelper.floor_double(this.posX);
+        int y = MathHelper.floor_double(this.posY);
+        int z = MathHelper.floor_double(this.posZ);
+
+        boolean foundMushroom = false;
+        for (int dir=0; dir<4; dir++) {
+            int xOffset = 0;
+            int zOffset = 0;
+
+            switch (dir) {
+                case 0:
+                    xOffset = -1;
+                    break;
+                case 1:
+                    xOffset = 1;
+                    break;
+                case 2:
+                    zOffset = -1;
+                    break;
+                case 3:
+                    zOffset = 1;
+                    break;
+            }
+
+            for (int yOffset = -1; yOffset <= 1; yOffset++) {
+                int id = this.worldObj.getBlockId(x+xOffset, y+yOffset, z+zOffset);
+                if (id == Block.mushroomBrown.blockID
+                 || id == Block.mushroomRed.blockID
+                 || id == Block.mushroomCapBrown.blockID
+                 || id == Block.mushroomCapRed.blockID) {
+                    foundMushroom = true;
+                    posX = x + xOffset + 0.5D;
+                    posY = y + yOffset;
+                    posZ = z + zOffset + 0.5D;
+                    // Although it seems that this would be more correct, it seems to make
+                    // the "one mushroom isn't in the right place" problem worse.
+                    //this.setPositionAndRotation(x + xOffset + 0.5D, y + yOffset, z + zOffset + 0.5D, this.rand.nextFloat() * 360.0F, 0.0F);
+                    break;
+                }
+            }
+        }
+
+        return foundMushroom;
+    }
+
+    public boolean basicSpawnCheck() {
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+
+        return this.worldObj.isBlockNormalCube(i, j-1, k)
+            && this.worldObj.checkNoEntityCollision(this.boundingBox, this)
+            && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()
+            // We'll allow the Shrooms to spawn in water.
+            //&& !this.worldObj.isAnyLiquid(this.boundingBox);
+            // ... but not lava.
+            && !this.worldObj.isBoundingBoxBurning(this.boundingBox);
+    }
+
+    public boolean placeNear(double x, double y, double z) {
+        for (int yOffset = 1; yOffset >= -1; yOffset--) {
+            this.setPositionAndRotation(x, y + yOffset, z, this.rand.nextFloat() * 360.0F, 0.0F);
+
+            if (this.basicSpawnCheck()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Shared spawning routine
+    // The entity already exists in world, but this gives us a chance to
+    // modify it right as it spawns.
+    // In this case, we turn a single entity into a ring of 5 Shrooms.
+    public EntityLivingData func_110161_a(EntityLivingData data) {
+        double originX = this.posX;
+        double originY = this.posY;
+        double originZ = this.posZ;
+
+        boolean spawnOK = false;
+        double baseAngle = this.rand.nextFloat() * 2 * Math.PI;
+        double angle;
+        for (angle = baseAngle; angle < baseAngle + 2 * Math.PI; angle += Math.PI / 8) {
+            if (this.placeNear(originX + RADIUS * Math.sin(angle),
+                               originY,
+                               originZ + RADIUS * Math.cos(angle))) {
+                spawnOK = true;
+                break;
+            }
+        }
+
+        System.out.println("spawnOK " + spawnOK + " at (" + originX + ", " + originY + ", " + originZ + ")");
+
+        baseAngle = angle;
+
+        if (!spawnOK) {
+            // Can't find anywhere to place a mushroom on the circle.
+            // Bail out, but leave this one behind, since here is OK.
+            this.setPositionAndRotation(originX, originY, originZ, this.rand.nextFloat() * 360.0F, 0.0F);
+            return data;
+        }
+
+        EntityShroom othershroom = null;
+        for (int i=1; i<5; i++) {
+            if (othershroom == null) {
+                othershroom = new EntityShroom(this.worldObj);
+            }
+
+            angle = baseAngle + i * (2 * Math.PI) / 5;
+            if (othershroom.placeNear(originX + RADIUS * Math.sin(angle),
+                                      originY,
+                                      originZ + RADIUS * Math.cos(angle))) {
+                this.worldObj.spawnEntityInWorld(othershroom);
+                othershroom = null;
+            }
+        }
+
+        return data;
+    }
+
+    public boolean canBreatheUnderwater() {
+        // No need to breathe at all.
+        return true;
+    }
 
     public static class NonMushroomEntitySelector implements IEntitySelector {
         /**
