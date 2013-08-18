@@ -9,6 +9,8 @@ import claycorp.soggycarpet.entity.wizard.EntityWizard;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.world.biome.BiomeGenBase;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class ModEntity {
@@ -17,10 +19,20 @@ public class ModEntity {
     public static void init() {
         registerEntity(EntityBunny.class, "EntityRabbit", 0xff86d3, 0x571b60);
         registerEntity(EntityBear.class, "EntityBear", 0xff86d3, 0x571b60);
-        registerEntity(EntityShroom.class, "EntityShroom", 0xff86d3, 0x571b60);
+        registerEntity(EntityShroom.class, "EntityShroom", 0xe51a1a, 0x88857f);
         registerEntity(EntityUnicornCow.class, "EntityUnicornCow", 0xff86d3, 0x571b60);
         registerEntity(EntityEnderGhast.class, "EntityEnderGhast", 0xff86d3, 0x571b60);
         registerEntity(EntityWizard.class, "EntityWyldWizard", 0xff86d3, 0x571b60);
+    }
+
+    public static void addSpawns() {
+        // Shrooms can spawn anywhere that small mushrooms exist.
+        for (BiomeGenBase biome : BiomeGenBase.biomeList) {
+            if (biome != null) {
+                EntityRegistry.addSpawn(EntityShroom.class, 10, 1, 1,
+                                        EnumCreatureType.monster, biome);
+            }
+        }
     }
 
     /**

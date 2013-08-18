@@ -36,12 +36,12 @@ public class SoggyCarpet {
         proxy.initRenders();
 
         ModEntity.init();
-        // EntityRegistry.addSpawn(EntityBear.class, weightedProb, min, max,
-        // spawnList, biomes);
     }
 
     @EventHandler
-    public void postInit(final FMLPostInitializationEvent event) {}
+    public void postInit(final FMLPostInitializationEvent event) {
+        ModEntity.addSpawns();
+    }
     
     
 
