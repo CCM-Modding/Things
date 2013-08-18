@@ -22,13 +22,30 @@ public class EntityShroom extends EntityMob {
     private static final AttributeModifier angrySpeedBoost = new AttributeModifier(angrySpeedBoostUUID, "Angry speed boost", 1.0D, 1);
 
     public EntityShroom(World par1World) {
-        this(par1World, false);
+        this(par1World, -1, false);
     }
 
-    public EntityShroom(World par1World, boolean spawnAngry) {
+    public EntityShroom(World par1World, int size, boolean spawnAngry) {
         super(par1World);
 
-        setSlimelikeSize(1 << rand.nextInt(3));
+        this.getNavigator().setAvoidsWater(false);
+        this.getNavigator().setCanSwim(false);
+
+        if (size <= 0) {
+            int size_roll = rand.nextInt(7);
+            if (size_roll < 1) {
+                // 1 in 7
+                size = 4;
+            } else if (size_roll < 3) {
+                // 2 in 7
+                size = 2;
+            } else {
+                // 4 in 7
+                size = 1;
+            }
+        }
+
+        setSlimelikeSize(size);
         setAngry(spawnAngry);
     }
 
@@ -163,8 +180,7 @@ public class EntityShroom extends EntityMob {
             {
                 float f = ((float)(k % 2) - 0.5F) * (float)i / 4.0F;
                 float f1 = ((float)(k / 2) - 0.5F) * (float)i / 4.0F;
-                EntityShroom babyshroom = new EntityShroom(this.worldObj, angry);
-                babyshroom.setSlimelikeSize(i / 2);
+                EntityShroom babyshroom = new EntityShroom(this.worldObj, i / 2, angry);
                 babyshroom.setLocationAndAngles(this.posX + (double)f, this.posY + 0.5D, this.posZ + (double)f1, this.rand.nextFloat() * 360.0F, 0.0F);
                 this.worldObj.spawnEntityInWorld(babyshroom);
             }
