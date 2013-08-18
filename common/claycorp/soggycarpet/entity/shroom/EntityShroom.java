@@ -280,12 +280,10 @@ public class EntityShroom extends EntityMob {
                  || id == Block.mushroomCapBrown.blockID
                  || id == Block.mushroomCapRed.blockID) {
                     foundMushroom = true;
-                    posX = x + xOffset + 0.5D;
-                    posY = y + yOffset;
-                    posZ = z + zOffset + 0.5D;
-                    // Although it seems that this would be more correct, it seems to make
-                    // the "one mushroom isn't in the right place" problem worse.
-                    //this.setPositionAndRotation(x + xOffset + 0.5D, y + yOffset, z + zOffset + 0.5D, this.rand.nextFloat() * 360.0F, 0.0F);
+                    this.setLocationAndAngles(x + xOffset + 0.5D,
+                                              y + yOffset,
+                                              z + zOffset + 0.5D,
+                                              this.rand.nextFloat() * 360.0F, 0.0F);
                     break;
                 }
             }
@@ -310,7 +308,7 @@ public class EntityShroom extends EntityMob {
 
     public boolean placeNear(double x, double y, double z) {
         for (int yOffset = 1; yOffset >= -1; yOffset--) {
-            this.setPositionAndRotation(x, y + yOffset, z, this.rand.nextFloat() * 360.0F, 0.0F);
+            this.setLocationAndAngles(x, y + yOffset, z, this.rand.nextFloat() * 360.0F, 0.0F);
 
             if (this.basicSpawnCheck()) {
                 return true;
@@ -341,19 +339,28 @@ public class EntityShroom extends EntityMob {
             }
         }
 
-        System.out.println("spawnOK " + spawnOK + " at (" + originX + ", " + originY + ", " + originZ + ")");
+        //System.out.println("spawnOK " + spawnOK + " at (" + originX + ", " + originY + ", " + originZ + ")");
 
         baseAngle = angle;
 
-        if (!spawnOK) {
+        if (spawnOK) {
+            // Because this entity has spawned and moved in the same tick,
+            // the client won't display it in the correct place.
+            // To fix this, we remove this entity entirely and let the
+            // circle-placement loop recreate it.
+            // Yes, this is a dirty hack.
+            this.worldObj.removeEntity(this);
+        } else {
             // Can't find anywhere to place a mushroom on the circle.
             // Bail out, but leave this one behind, since here is OK.
-            this.setPositionAndRotation(originX, originY, originZ, this.rand.nextFloat() * 360.0F, 0.0F);
+            // (This avoids the above-mentioned bug, because it's
+            //  back where it started.)
+            this.setLocationAndAngles(originX, originY, originZ, this.rand.nextFloat() * 360.0F, 0.0F);
             return data;
         }
 
         EntityShroom othershroom = null;
-        for (int i=1; i<5; i++) {
+        for (int i=0; i<5; i++) {
             if (othershroom == null) {
                 othershroom = new EntityShroom(this.worldObj);
             }
