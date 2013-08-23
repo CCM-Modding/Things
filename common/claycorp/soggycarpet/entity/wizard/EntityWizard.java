@@ -66,13 +66,13 @@ public class EntityWizard extends EntityMob{
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
      * par2 - Level of Looting used to kill this mob.
      */
-   // @Override
-    //protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
-   // 	if (playerHit == true)
-    //		this.dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
-   // 	if (playerHit == false)
-    //		this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
-  //  }
+    @Override
+    protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
+    	if (playerHit == true)
+    		this.dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
+    	if (playerHit == false)
+    		this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
+    }
     @Override
     public boolean isAIEnabled() {
         return true;

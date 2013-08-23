@@ -41,6 +41,7 @@ public final class Config {
         Properties.bearquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
         Properties.bearkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 300).getInt();
         Properties.bearquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 10).getInt();
+        
         cat= "Entity.Bunny";
         config.addCustomCategoryComment(cat, "Values For Bunnys");
         Properties.bunnytotal = config.get(cat, "Max_Per_Chunk", 15).getInt();
@@ -57,6 +58,7 @@ public final class Config {
         Properties.rabbitquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
         Properties.rabbitkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 380).getInt();
         Properties.rabbitquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 1).getInt();
+        
         cat= "Entity.Shroom";
         config.addCustomCategoryComment(cat, "Values For Shrooms");
         Properties.shroomtotal = config.get(cat, "Max_Per_Chunk", 15).getInt();

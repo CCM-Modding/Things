@@ -61,29 +61,6 @@ public class EntityBunny extends EntityPigZombie {
     		this.dropItem(Properties.rabbitkillitemdrop, Properties.rabbitquantityofdropkill);
     }
 
-    /**@Override
-    public void onUpdate()
-    {
-        if (this.field_110191_bu != this.entityToAttack && !this.worldObj.isRemote)
-        {
-            AttributeInstance attributeinstance = this.func_110148_a(SharedMonsterAttributes.field_111263_d);
-            attributeinstance.func_111124_b(field_110190_br);
-
-            if (this.entityToAttack != null)
-            {
-                attributeinstance.func_111121_a(field_110190_br);
-            }
-        }
-
-        this.field_110191_bu = this.entityToAttack;
-
-        if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
-        {
-            this.playSound("mob.cat.say", this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
-        }
-
-        super.onUpdate();
-    }**/
 
     @Override
     public boolean isAIEnabled() {
