@@ -37,9 +37,9 @@ public final class Config {
         Properties.beardamage = config.get(cat, "Damage_Per_Attack", 100).getInt();
         Properties.bearknockbackresistance = config.get(cat, "Resistance_To_Knockback", 10).getInt();
         Properties.bearfollowrange = config.get(cat, "How_Far_Bears_Folow_To_Attack", 50).getInt();
-        Properties.bearplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 56).getInt();
+        Properties.bearplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 349).getInt();
         Properties.bearquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
-        Properties.bearkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 300).getInt();
+        Properties.bearkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 334).getInt();
         Properties.bearquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 10).getInt();
         
         cat= "Entity.Bunny";
@@ -54,9 +54,9 @@ public final class Config {
         Properties.bunnydamage = config.get(cat, "Damage_Per_Attack", 1).getInt();
         Properties.bunnyknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
         Properties.bunnyfollowrange = config.get(cat, "How_Far_Bunnys_Folow_To_Attack", 50).getInt();
-        Properties.rabbitplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 50).getInt();
+        Properties.rabbitplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 295).getInt();
         Properties.rabbitquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
-        Properties.rabbitkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 380).getInt();
+        Properties.rabbitkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 352).getInt();
         Properties.rabbitquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 1).getInt();
         
         cat= "Entity.Shroom";
@@ -65,16 +65,29 @@ public final class Config {
         Properties.shroom_deviousness = config.get(cat, "Deviousness", 200).getInt();
         Properties.shroomhealth = config.get(cat, "Health", 5).getInt();
         Properties.shroomxp = config.get(cat, "XP_Drop", 1).getInt();
-        //Properties.bunnytracking = config.get(cat, "Distance_Bunnys_Will_Not_Enjoy_You", 50).getInt();
         Properties.shroommovespeed = config.get(cat, "Move_Speed", 0.1).getDouble(0);
-        //Properties.bunnyattackspeed = config.get(cat, "Speed_Of_Attack", 1).getInt();
         Properties.shroomdamage = config.get(cat, "Damage_Per_Attack", 4).getInt();
         Properties.shroomknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
         Properties.shroomfollowrange = config.get(cat, "How_Far_Shrooms_Folow_To_Attack", 5).getInt();
-        Properties.shroomplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 50).getInt();
-        Properties.shroomquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 1).getInt();
-        Properties.shroomkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 380).getInt();
-        Properties.shroomquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 1).getInt();
+        Properties.shroomplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 296).getInt();
+        Properties.shroomquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 2).getInt();
+        Properties.shroomkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 40).getInt();
+        Properties.shroomquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 2).getInt();
+        
+        cat= "Entity.Wizard";
+        config.addCustomCategoryComment(cat, "Values For Wizard");
+        Properties.wizardtotal = config.get(cat, "Max_Per_Chunk", 15).getInt();
+        Properties.wizard_deviousness = config.get(cat, "Deviousness", 200).getInt();
+        Properties.wizardhealth = config.get(cat, "Health", 5).getInt();
+        Properties.wizardxp = config.get(cat, "XP_Drop", 1).getInt();
+        Properties.wizardmovespeed = config.get(cat, "Move_Speed", 0.1).getDouble(0);
+        Properties.wizarddamage = config.get(cat, "Damage_Per_Attack", 4).getInt();
+        Properties.wizardknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
+        Properties.wizardfollowrange = config.get(cat, "How_Far_Wizard_Folow_To_Attack", 5).getInt();
+        Properties.wizardplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 296).getInt();
+        Properties.wizardquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 2).getInt();
+        Properties.wizardkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 40).getInt();
+        Properties.wizardquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 2).getInt();
 
 
 

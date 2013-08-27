@@ -64,6 +64,22 @@ public final class Properties { // Block Id's
     public static int shroomkillitemdrop;
     public static int shroomquantityofdropkill;
     public static boolean shroomdoor;
+    
+    //Wizard
+    public static int wizardtotal;
+    public static int wizardtracking;
+    public static int wizard_deviousness;
+    public static double wizardmovespeed;
+    public static int wizardattackspeed;
+    public static int wizardhealth;
+    public static int wizardxp;
+    public static int wizarddamage;
+    public static int wizardfollowrange;
+    public static int wizardknockbackresistance;
+    public static int wizardplayerkillitemdrop;
+    public static int wizardquantityofdropplayerkill;
+    public static int wizardkillitemdrop;
+    public static int wizardquantityofdropkill;
 
 	
 

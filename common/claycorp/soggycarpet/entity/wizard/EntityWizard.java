@@ -22,7 +22,6 @@ public class EntityWizard extends EntityMob{
 	public EntityWizard(World par1World) {
 		super(par1World);
 		this.setSize(1.1F, 1.5F);
-        this.getNavigator().setBreakDoors(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIBreakDoor(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, false));
@@ -34,7 +33,7 @@ public class EntityWizard extends EntityMob{
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, true));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
         this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityAnimal.class, 0, false));
-        this.experienceValue = Properties.bearxp;
+        this.experienceValue = Properties.wizardxp;
 	}
     /**
      * Basic mob attack. Default to touch of death in EntityCreature. Overridden
@@ -56,11 +55,11 @@ public class EntityWizard extends EntityMob{
     @Override
     protected void func_110147_ax() {
         super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.bearhealth); // maxHealth
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.bearfollowrange); // followRange
-        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.bearknockbackresistance); // knockbackResistance
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bearmovespeed); // move speed
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.beardamage); // attackDamage
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.wizardhealth); // maxHealth
+        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.wizardfollowrange); // followRange
+        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.wizardknockbackresistance); // knockbackResistance
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.wizardmovespeed); // move speed
+        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.wizarddamage); // attackDamage
     }
     /**
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
@@ -69,9 +68,9 @@ public class EntityWizard extends EntityMob{
     @Override
     protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
     	if (playerHit == true)
-    		this.dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
+    		this.dropItem(Properties.wizardplayerkillitemdrop, Properties.wizardquantityofdropplayerkill);
     	if (playerHit == false)
-    		this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
+    		this.dropItem(Properties.wizardkillitemdrop, Properties.wizardquantityofdropkill);
     }
     @Override
     public boolean isAIEnabled() {
@@ -80,7 +79,7 @@ public class EntityWizard extends EntityMob{
 
     @Override
     public int getMaxSpawnedInChunk() {
-        return Properties.beartotal;
+        return Properties.wizardtotal;
     }
     @Override
     public boolean getCanSpawnHere() {
