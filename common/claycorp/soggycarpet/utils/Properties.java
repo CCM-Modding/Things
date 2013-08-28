@@ -80,6 +80,22 @@ public final class Properties { // Block Id's
     public static int wizardquantityofdropplayerkill;
     public static int wizardkillitemdrop;
     public static int wizardquantityofdropkill;
+    
+    //EnderGhast
+    public static int enderghasttotal;
+    public static int enderghasttracking;
+    public static int enderghast_deviousness;
+    public static double enderghastmovespeed;
+    public static int enderghastattackspeed;
+    public static int enderghasthealth;
+    public static int enderghastxp;
+    public static int enderghastdamage;
+    public static int enderghastfollowrange;
+    public static int enderghastknockbackresistance;
+    public static int enderghastplayerkillitemdrop;
+    public static int enderghastquantityofdropplayerkill;
+    public static int enderghastkillitemdrop;
+    public static int enderghastquantityofdropkill;
 
 	
 

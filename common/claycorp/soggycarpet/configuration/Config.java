@@ -89,6 +89,20 @@ public final class Config {
         Properties.wizardkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 40).getInt();
         Properties.wizardquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 2).getInt();
 
+        cat= "Entity.EnderGhast";
+        config.addCustomCategoryComment(cat, "Values For EnderGhast");
+        Properties.enderghasttotal = config.get(cat, "Max_Per_Chunk", 15).getInt();
+        Properties.enderghast_deviousness = config.get(cat, "Deviousness", 200).getInt();
+        Properties.enderghasthealth = config.get(cat, "Health", 5).getInt();
+        Properties.enderghastxp = config.get(cat, "XP_Drop", 1).getInt();
+        Properties.enderghastmovespeed = config.get(cat, "Move_Speed", 0.1).getDouble(0);
+        Properties.enderghastdamage = config.get(cat, "Damage_Per_Attack", 4).getInt();
+        Properties.enderghastknockbackresistance = config.get(cat, "Resistance_To_Knockback", 0).getInt();
+        Properties.enderghastfollowrange = config.get(cat, "How_Far_EnderGhast_Folow_To_Attack", 5).getInt();
+        Properties.enderghastplayerkillitemdrop = config.get(cat, "ID_Of_Item_Drop_When_A_Player_Kills", 296).getInt();
+        Properties.enderghastquantityofdropplayerkill = config.get(cat, "How_Many_Items_To_Drop_On_Player_Kill", 2).getInt();
+        Properties.enderghastkillitemdrop = config.get(cat, "ID_Of_Item_Drop_On_Death", 40).getInt();
+        Properties.enderghastquantityofdropkill = config.get(cat, "How_Many_Items_To_Drop_On_Death", 2).getInt();
 
 
 
