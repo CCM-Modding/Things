@@ -23,6 +23,7 @@ public class ModEntity {
         registerEntity(EntityUnicornCow.class, "EntityUnicornCow", 0xff86d3, 0x571b60);
         registerEntity(EntityEnderGhast.class, "EntityEnderGhast", 0xff86d3, 0x571b60);
         registerEntity(EntityWizard.class, "EntityWyldWizard", 0xff86d3, 0x571b60);
+        registerEntity(EntityWizard.class, "EntityOrefish", 0xff86d3, 0x571b60);
     }
 
     public static void addSpawns() {
