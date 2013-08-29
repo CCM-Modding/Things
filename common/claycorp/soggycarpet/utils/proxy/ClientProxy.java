@@ -6,6 +6,8 @@ import claycorp.soggycarpet.entity.bunny.EntityBunny;
 import claycorp.soggycarpet.entity.bunny.RenderBunny;
 import claycorp.soggycarpet.entity.enderghast.EntityEnderGhast;
 import claycorp.soggycarpet.entity.enderghast.RenderEnderGhast;
+import claycorp.soggycarpet.entity.orefish.EntityOrefish;
+import claycorp.soggycarpet.entity.orefish.RenderOrefish;
 import claycorp.soggycarpet.entity.shroom.EntityShroom;
 import claycorp.soggycarpet.entity.shroom.RenderShroom;
 import claycorp.soggycarpet.entity.unicorncow.EntityUnicornCow;
@@ -28,6 +30,7 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityUnicornCow.class, new RenderUnicornCow());
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderGhast.class, new RenderEnderGhast());
         RenderingRegistry.registerEntityRenderingHandler(EntityWizard.class, new RenderWizard());
+        RenderingRegistry.registerEntityRenderingHandler(EntityOrefish.class, new RenderOrefish());
         
     }
 }

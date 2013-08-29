@@ -3,6 +3,7 @@ package claycorp.soggycarpet.entity;
 import claycorp.soggycarpet.entity.bear.EntityBear;
 import claycorp.soggycarpet.entity.bunny.EntityBunny;
 import claycorp.soggycarpet.entity.enderghast.EntityEnderGhast;
+import claycorp.soggycarpet.entity.orefish.EntityOrefish;
 import claycorp.soggycarpet.entity.shroom.EntityShroom;
 import claycorp.soggycarpet.entity.unicorncow.EntityUnicornCow;
 import claycorp.soggycarpet.entity.wizard.EntityWizard;
@@ -23,7 +24,7 @@ public class ModEntity {
         registerEntity(EntityUnicornCow.class, "EntityUnicornCow", 0xff86d3, 0x571b60);
         registerEntity(EntityEnderGhast.class, "EntityEnderGhast", 0xff86d3, 0x571b60);
         registerEntity(EntityWizard.class, "EntityWyldWizard", 0xff86d3, 0x571b60);
-        registerEntity(EntityWizard.class, "EntityOrefish", 0xff86d3, 0x571b60);
+        registerEntity(EntityOrefish.class, "EntityOrefish", 0xff86d3, 0x571b60);
     }
 
     public static void addSpawns() {
