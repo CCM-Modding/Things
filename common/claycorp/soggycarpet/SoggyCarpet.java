@@ -5,6 +5,7 @@ import claycorp.soggycarpet.configuration.Config;
 import claycorp.soggycarpet.entity.ModEntity;
 import claycorp.soggycarpet.utils.Archive;
 import claycorp.soggycarpet.utils.proxy.CommonProxy;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -16,7 +17,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = Archive.MOD_ID, name = Archive.MOD_NAME, version = Archive.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
-public class SoggyCarpet {
+public class SoggyCarpet
+{
     public static final String WindowDoor = "soggycarpet:window";
 
     @Instance(Archive.MOD_ID)
@@ -26,23 +28,23 @@ public class SoggyCarpet {
     public static CommonProxy proxy;
 
     @EventHandler
-    public void preInit(final FMLPreInitializationEvent event) {
+    public void preInit(final FMLPreInitializationEvent event)
+    {
         Config.load(event);
         ModBlocks.init();
     }
 
     @EventHandler
-    public void init(final FMLInitializationEvent event) {
+    public void init(final FMLInitializationEvent event)
+    {
         proxy.initRenders();
 
         ModEntity.init();
     }
 
     @EventHandler
-    public void postInit(final FMLPostInitializationEvent event) {
+    public void postInit(final FMLPostInitializationEvent event)
+    {
         ModEntity.addSpawns();
     }
-    
-    
-
 }
