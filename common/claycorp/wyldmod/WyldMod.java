@@ -16,14 +16,14 @@ import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = Archive.MOD_ID, name = Archive.MOD_NAME, version = Archive.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
-public class SoggyCarpet
+public class WyldMod
 {
-    public static final String WindowDoor = "soggycarpet:window";
+    public static final String WindowDoor = "wyldmod:window";
 
     @Instance(Archive.MOD_ID)
-    public static SoggyCarpet instance;
+    public static WyldMod instance;
 
-    @SidedProxy(clientSide = "claycorp.soggycarpet.utils.proxy.ClientProxy", serverSide = "claycorp.soggycarpet.utils.proxy.CommonProxy")
+    @SidedProxy(clientSide = "claycorp.wyldmod.utils.proxy.ClientProxy", serverSide = "claycorp.wyldmod.utils.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @EventHandler

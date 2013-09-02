@@ -12,8 +12,7 @@ import net.minecraft.world.World;
 import claycorp.wyldmod.utils.Archive;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-// Single window Flips down
-// Anything larger flips to the sides.
+
 
 public class WindowDoor extends Block {
     public WindowDoor(final int par1, final Material par2Material) {
