@@ -1,5 +1,7 @@
 package claycorp.wyldmod.entity.bear;
 
+import claycorp.wyldmod.utils.Properties;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -15,81 +17,94 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import claycorp.wyldmod.utils.Properties;
 
-public class EntityBear extends EntityMob {
+public class EntityBear extends EntityMob
+{
 
-    public EntityBear(final World world) {
+    public EntityBear(final World world)
+    {
         super(world);
-        this.setSize(1.1F, 1.5F);
-        this.getNavigator().setBreakDoors(true);
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIBreakDoor(this));
-        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, false));
-        this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
-        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityAnimal.class, 1.0D, false));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, true));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        this.targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityAnimal.class, 0, false));
-        this.experienceValue = Properties.bearxp;
+        setSize(1.1F, 1.5F);
+        getNavigator().setBreakDoors(true);
+        tasks.addTask(0, new EntityAISwimming(this));
+        tasks.addTask(1, new EntityAIBreakDoor(this));
+        tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityVillager.class, 1.0D, false));
+        tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
+        tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityAnimal.class, 1.0D, false));
+        tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        tasks.addTask(6, new EntityAIWander(this, 1.0D));
+        tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
+        targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
+        targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, true));
+        targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        targetTasks.addTask(4, new EntityAINearestAttackableTarget(this, EntityAnimal.class, 0, false));
+        experienceValue = Properties.bearxp;
     }
 
     @Override
-    public void onUpdate() {
+    public void onUpdate()
+    {
         super.onUpdate();
 
-        if (!this.worldObj.isRemote && (this.worldObj.difficultySetting == 0)) {
-            this.setDead();
+        if (!worldObj.isRemote && (worldObj.difficultySetting == 0))
+        {
+            setDead();
         }
     }
 
     /**
-     * Basic mob attack. Default to touch of death in EntityCreature. Overridden
-     * by each mob to define their attack.
+     * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
      */
     @Override
-    protected void attackEntity(final Entity par1Entity, final float par2) {
-        if ((this.attackTime <= 0) && (par2 < 2.0F) && (par1Entity.boundingBox.maxY > this.boundingBox.minY) && (par1Entity.boundingBox.minY < this.boundingBox.maxY)) {
-            this.attackTime = Properties.bearattackspeed;
-            this.attackEntityAsMob(par1Entity);
+    protected void attackEntity(final Entity par1Entity, final float par2)
+    {
+        if ((attackTime <= 0) && (par2 < 2.0F) && (par1Entity.boundingBox.maxY > boundingBox.minY) && (par1Entity.boundingBox.minY < boundingBox.maxY))
+        {
+            attackTime = Properties.bearattackspeed;
+            attackEntityAsMob(par1Entity);
         }
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        return (this.worldObj.difficultySetting > 0) && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+    public boolean getCanSpawnHere()
+    {
+        return (worldObj.difficultySetting > 0) && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty()
+                && !worldObj.isAnyLiquid(boundingBox);
     }
 
     @Override
-    protected void func_110147_ax() {
-        super.func_110147_ax();
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(Properties.bearhealth); // maxHealth
-        this.func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(Properties.bearfollowrange); // followRange
-        this.func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(Properties.bearknockbackresistance); // knockbackResistance
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(Properties.bearmovespeed); // move speed
-        this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(Properties.beardamage); // attackDamage
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(Properties.bearhealth); // maxHealth
+        getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(Properties.bearfollowrange); // followRange
+        getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setAttribute(Properties.bearknockbackresistance); // knockbackResistance
+        getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(Properties.bearmovespeed); // move speed
+        getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(Properties.beardamage); // attackDamage
     }
+
     /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
+     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param par2 - Level of Looting used to kill this mob.
      */
     @Override
-    protected void dropFewItems(final boolean playerHit, final int lootingLvl) {
-    		if (playerHit == true)
-    			this.dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
-    		if (playerHit == false)
-    			this.dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
+    protected void dropFewItems(final boolean playerHit, final int lootingLvl)
+    {
+        if (playerHit == true)
+        {
+            dropItem(Properties.bearplayerkillitemdrop, Properties.bearquantityofdropplayerkill);
+        }
+        if (playerHit == false)
+        {
+            dropItem(Properties.bearkillitemdrop, Properties.bearquantityofdropkill);
+        }
     }
 
     /**
      * Returns the sound this mob makes while it's alive.
      */
     @Override
-    protected String getLivingSound() {
+    protected String getLivingSound()
+    {
         return "mob.endermen.idle";
     }
 
@@ -97,7 +112,8 @@ public class EntityBear extends EntityMob {
      * Returns the sound this mob makes when it is hurt.
      */
     @Override
-    protected String getHurtSound() {
+    protected String getHurtSound()
+    {
         return "mob.ghast.scream";
     }
 
@@ -105,7 +121,8 @@ public class EntityBear extends EntityMob {
      * Returns the sound this mob makes on death.
      */
     @Override
-    protected String getDeathSound() {
+    protected String getDeathSound()
+    {
         return "mob.ghast.death";
     }
 
@@ -113,23 +130,28 @@ public class EntityBear extends EntityMob {
      * Plays step sound at given x, y, z for the entity
      */
     @Override
-    protected void playStepSound(final int par1, final int par2, final int par3, final int par4) {
-        this.playSound("mob.cow.step", 0.15F, 1.0F);
+    protected void playStepSound(final int par1, final int par2, final int par3, final int par4)
+    {
+        playSound("mob.cow.step", 0.15F, 1.0F);
     }
 
     @Override
-    public boolean isAIEnabled() {
+    public boolean isAIEnabled()
+    {
         return true;
     }
 
     @Override
-    public int getMaxSpawnedInChunk() {
+    public int getMaxSpawnedInChunk()
+    {
         return Properties.beartotal;
     }
+
+    @Override
     protected float getSoundPitch()
     {
-		return -10.0F;
-    	
+        return -10.0F;
+
     }
 
 }

@@ -6,22 +6,17 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderBear extends RenderLiving
 {
-	private static final ModelBear model = new ModelBear();
-	private static final ResourceLocation texture = new ResourceLocation("soggycarpet", "textures/entity/bear.png");
-	
-	public RenderBear()
-	{
-		super(model, 1.05F);
-	}
+    private static final ModelBear model = new ModelBear();
+    private static final ResourceLocation texture = new ResourceLocation("soggycarpet", "textures/entity/bear.png");
 
-	protected ResourceLocation func_110832_a(EntityBear par1EntityCow)
-	{
-		return texture;
-	}
+    public RenderBear()
+    {
+        super(model, 1.05F);
+    }
 
-	protected ResourceLocation func_110775_a(Entity par1Entity)
-	{
-		return this.func_110832_a((EntityBear)par1Entity);
-	}
-
+    @Override
+    protected ResourceLocation getEntityTexture(final Entity entity)
+    {
+        return texture;
+    }
 }

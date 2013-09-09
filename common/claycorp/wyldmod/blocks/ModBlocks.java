@@ -1,14 +1,15 @@
 package claycorp.wyldmod.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import claycorp.wyldmod.utils.Properties;
 import claycorp.wyldmod.utils.materials.Materials;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ModBlocks {
+public class ModBlocks
+{
     public static BlockSoggyCarpet soggycarpet;
     public static CarpetConvayorZ convayorz;
     public static CarpetConvayorX convayorx;
@@ -22,7 +23,8 @@ public class ModBlocks {
     public static CarpetDoor trapdoor;
     public static WindowDoor windowdoor;
 
-    public static void init() {
+    public static void init()
+    {
         soggycarpet = new BlockSoggyCarpet(Properties.soggycarpetID);
         convayorz = new CarpetConvayorZ(Properties.convayorzID);
         convayorx = new CarpetConvayorX(Properties.convayorxID);
@@ -35,7 +37,6 @@ public class ModBlocks {
         convayornxy = new CarpetConvayorNXY(Properties.convayornxyID);
         trapdoor = new CarpetDoor(Properties.trapdoorID, Materials.carpet);
         windowdoor = new WindowDoor(Properties.windowdoorID, Material.glass);
-
 
         GameRegistry.registerBlock(soggycarpet, "CLAYCORP.SOGGYCARPET.BLOCK");
         GameRegistry.registerBlock(convayorz, "CLAYCORP.CARPETCONVAYORZ.BLOCK");
@@ -50,19 +51,14 @@ public class ModBlocks {
         GameRegistry.registerBlock(trapdoor, "CLAYCORP.CARPETTRAPDOOR.BLOCK");
         GameRegistry.registerBlock(windowdoor, "CLAYCORP.WINDOWTRAPDOOR.BLOCK");
 
-        final int carpetID = Block.field_111031_cC.blockID;
+        final int carpetID = Block.carpet.blockID;
         Block.blocksList[carpetID] = null;
         Block.blocksList[carpetID] = new BlockCarpetModified(carpetID);
-        
-        //Crafting
-        /*GameRegistry.addRecipe(new ItemStack(fleshblock), new Object[] 
-        	{ 
-        		"FFF",
-        		"FFF",
-        		"FFF",
-            
-        		'F',Item.rottenFlesh});
-        		*/
+
+        // Crafting
+        /*
+         * GameRegistry.addRecipe(new ItemStack(fleshblock), new Object[] { "FFF", "FFF", "FFF", 'F',Item.rottenFlesh});
+         */
 
     }
 }
